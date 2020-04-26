@@ -12,9 +12,10 @@ export default class LoginEmail extends React.Component {
 		input:' ',
 		mailNotExist:' ',
 		mailUsed:' ',
-		verificationCode:' ',
+		generatedCode:' ',
 		codeSended:' ',
-		codeCorrect:' ',
+		apiUrl:' ',
+		passwordInput:' ',
 	};
 
 inputHandler = (event) =>{
@@ -25,22 +26,45 @@ this.setState({input: event.target.value});
 };
 
 handleValues = () => {
-	this.forceUpdate();
-	setTimeout( () => {
-			this.setState({mailString:true});
-	},100)
-  };
+  this.forceUpdate();
+  if (this.state.input.length > 11) {
+    this.setState({input:this.state.input})
+  }else{
+
+  setTimeout( () => {
+      this.setState({mailString:true});
+  },100)
+  }
+};
 
   validationButtonHandler = () => {
-  	if(this.state.codeSended != true && this.state.input.length > 5){
+  	const {codeSended,generatedCode,passwordInput,input} = this.state;
+  	if(codeSended != true && input.length > 5){
   		this.setState({codeSended:true});
-  	}else{
-  	alert("something went wrong");	
+  		this.generateCommonCode();
+  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode){
+      window.location = "/Map";
+  	}else {
+  		alert("something went wrong");	
   	}
-  }
+  };
+
+  generateCommonCode=()=>{
+		let code = Math.floor(Math.random()*100000)
+		console.log(code);
+			this.setState({generatedCode:code})
+};
+
+
+  passwordHandler = (value) => {
+setTimeout(()=>{
+this.setState({passwordInput:Number(value) });
+},200);
+};
+
 
 render(){
-	const {mailUsed,mailNotExist,codeSended,input} = this.state;
+	const {mailUsed,mailNotExist,codeSended,passwordInput,generatedCode,input} = this.state;
 	return (
 
 	<div className="loginScreen">
@@ -49,42 +73,61 @@ render(){
 			
 			<p>Введите адрес эл.почты</p>
 			<div className="inputRowComponent">
+			
 				<input onChange={()=> {this.inputHandler(event)}} 
-				className="validationInputField"
-				placeholder="ivanov.ivan@mail.ru"
+						className="validationInputField"
+						placeholder="ivanov.ivan@mail.ru"
 				/>
+				
 				<img className="validationInputFieldIndication"src={validationSuccess}
 				style={mailUsed === false && mailNotExist === false && input.length >= 5 ? {display:'block'}:{display:'none'} }
 				/>
+				
 				<img className="validationInputFieldIndication"src={validationFaild}
 				style={mailUsed === true || mailNotExist === true ? {display:'block'}:{display:'none'} }
 				/>
-			</div>
-			<div className="codeField" 
-				style={codeSended === true ? {display:'block'}:{display:'none'}}>
-				<p>Введите код</p>	
-				<input className="validationInputField" placeholder="• • • • •"/>
+			
 			</div>
 			
-				<p className="validationErrorText" style={mailNotExist === true ? {display:'block'}:{display:'none'} }>Указанный адрес не существует</p>
-				<p className="validationErrorText" style={mailUsed === true ? {display:'block'}:{display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
-				<p className="validationErrorText" style={codeSended === true ? {display:'block'}:{display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
+			<div className="codeField" 
+				 style={codeSended === true ? {display:'block'}:{display:'none'}}>
+				
+				<p>Введите код</p>	
+				
+				   <div className="inputRowComponent"> 
+					<input 
+						className="validationInputField" placeholder="• • • • •"
+						maxLength="5"
+						onChange={ ()=>{this.passwordHandler(event.target.value)}}
+					/>
+				 <img className="validationInputFieldIndication"src={validationSuccess}
+        			  style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
+     			  />
+     
+     			<img className="validationInputFieldIndication"src={validationFaild}
+        		style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
+      			/>
+						<p className="validationErrorText" style={mailNotExist === true ? {display:'block'}:{display:'none'} }>Указанный адрес не существует</p>
+						<p className="validationErrorText" style={mailUsed === true ? {display:'block'}:{display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
+						<p className="validationErrorText" style={codeSended === true ? {display:'block'}:{display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
 		
-		</div>
-		
+				</div>
+				</div>
+			</div>
+
 				<button className="passwordSendButton" 
 				
 							style={input.length < 5 || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}
 							       								   
 				
 																	
-						onClick={ ()=>{this.validationButtonHandler}}> 
+						onClick={ ()=>{this.validationButtonHandler(event)}}> 
 
 					<p style={codeSended == false ? {display:'block'} : {display:'none'}}>Выслать код</p>
 					<p style={codeSended == true ? {display:'block'} : {display:'none'}}>Войти</p>
 				 
 				 </button>
-	</div>
+		</div>
 	);
   }
 }
