@@ -1,0 +1,372 @@
+body {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  font-family: 'Josefin Sans', sans-serif;
+  width: 320px;
+  height: 568px;
+}
+.App {
+  border: 2px solid black;
+}
+#root {
+  display: block;
+  width: 100%;
+}
+.mainScreen {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 320px;
+  height: 568px;
+  -webkit-animation: mainscreen 1s ease-in;
+          animation: mainscreen 1s ease-in;
+}
+.mainScreen p {
+  position: relative;
+  z-index: 3;
+  float: right;
+}
+.mainScreen .aboutLink {
+  text-decoration: none;
+  position: relative;
+  top: 16px;
+  left: 20px;
+}
+@-webkit-keyframes mainscreen {
+  from {
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  to {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+@keyframes mainscreen {
+  from {
+    -webkit-filter: brightness(0);
+            filter: brightness(0);
+  }
+  to {
+    -webkit-filter: brightness(1);
+            filter: brightness(1);
+  }
+}
+.mainScreen .logo {
+  display: block;
+  width: 110px;
+  height: 30px;
+  position: relative;
+  top: 20%;
+  left: 35%;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-name: logo;
+          animation-name: logo;
+}
+@-webkit-keyframes logo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+@keyframes logo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+}
+.searchButton {
+  display: inline-block;
+  position: absolute;
+  width: 110px;
+  line-height: 31px;
+  font-size: 15px;
+  text-align: center;
+  bottom: 30%;
+  left: 35%;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+  font-weight: bold;
+  background-color: #02DA35;
+  color: white;
+  text-decoration: none;
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-animation: searchButton 2s ease-in;
+          animation: searchButton 2s ease-in;
+}
+@-webkit-keyframes searchButton {
+  from {
+    opacity: 0;
+    margin-bottom: -400px;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0px;
+  }
+  95% {
+    opacity: 0;
+  }
+}
+@keyframes searchButton {
+  from {
+    opacity: 0;
+    margin-bottom: -400px;
+  }
+  to {
+    opacity: 1;
+    margin-bottom: 0px;
+  }
+  95% {
+    opacity: 0;
+  }
+}
+.searchButton:hover {
+  -webkit-transition: 1s;
+  transition: 1s;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+}
+.map {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.map .mapFrame {
+  width: 320px;
+  height: 471px;
+  border: 0;
+  border: none;
+}
+.map .mapLoaderText {
+  position: absolute;
+  width: auto;
+  top: 50%;
+  left: 30%;
+  z-index: -1;
+  font-size: 18px;
+}
+.linksList {
+  display: block;
+  width: 100%;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.linksList ul {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+  height: 15px;
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  list-style: none;
+  padding: 10px 0;
+  margin: 0;
+  background-color: #02DA35;
+}
+.welcomeText {
+  display: block;
+  width: 237px;
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 30px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  padding: 58px 40px 72px 40px;
+}
+.loginLinksRow {
+  display: block;
+  text-align: center;
+}
+.loginLinksRow .loginLink {
+  display: block;
+  width: 266px;
+  height: 40px;
+  line-height: 42px;
+  margin: 10px 25px;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+.loginLinksRow .loginLink_email {
+  background-color: #6C69FF;
+  color: white;
+  border: none;
+  margin-bottom: 272px;
+}
+.loginScreen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.loginScreen p {
+  font-family: Roboto, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: left;
+}
+.loginScreen .validationErrorText {
+  margin: 0;
+  color: red;
+  font-size: 8px;
+}
+.loginScreen .validationInputRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70%;
+  padding: 170px 0 14px 60px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.loginScreen .validationInputRow .validationInputField {
+  width: 196px;
+  height: 25px;
+  margin-bottom: 2px;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding-left: 5px;
+}
+.loginScreen .validationInputRow .inputRowComponent {
+  position: relative;
+}
+.loginScreen .validationInputRow .inputRowComponent .validationInputFieldIndication {
+  display: block;
+  position: absolute;
+  top: 9px;
+  right: 30px;
+  width: 12px;
+  height: 12px;
+}
+.loginScreen .passwordSendButton {
+  display: inline-block;
+  width: 201px;
+  height: 40px;
+  margin: 0 0 264px 60px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  color: white;
+  font-weight: bold;
+  background-color: #6C69FF;
+  opacity: 0.5;
+}
+.loginScreen .passwordSendButton p {
+  width: 100%;
+  margin: 0;
+  line-height: 40px;
+  text-align: center;
+}
+@media screen and (min-width: 750px) {
+  body {
+    width: 750px;
+    height: 1334px;
+  }
+  #root {
+    width: 750px;
+  }
+  #root .App {
+    width: 750px;
+  }
+  .mainScreen {
+    display: block;
+    width: 750px;
+    height: 1334px;
+  }
+  .mainScreen .logo {
+    display: block;
+    width: 250px;
+    height: 70px;
+    position: relative;
+    top: 20%;
+    left: 35%;
+    -webkit-animation-duration: 1.5s;
+            animation-duration: 1.5s;
+    -webkit-animation-name: logo;
+            animation-name: logo;
+  }
+  .mainScreen .searchButton {
+    width: 250px;
+    height: 50px;
+    font-size: 25px;
+    line-height: 50px;
+  }
+  .map {
+    display: block;
+    width: 100%;
+    font-size: 30px;
+    text-align: center;
+  }
+  .map .mapFrame {
+    width: 750px;
+    height: 1152px;
+  }
+  .map .mapLoaderText {
+    position: absolute;
+    top: 50%;
+    left: 27%;
+    z-index: -1;
+    font-size: 50px;
+  }
+  .aboutSlider {
+    width: 750px;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .aboutSlider img {
+    width: 750px;
+    height: 750px;
+  }
+  .aboutSlider .loginLinksRow {
+    display: block;
+    margin-top: 50px;
+  }
+}
