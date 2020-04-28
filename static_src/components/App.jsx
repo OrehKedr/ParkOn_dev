@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 import style from "./styles/style.css";
 import {useMediaQuery} from 'react-responsive';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Info from "./Info";
 import Map from "./Map";
 import About from './About';
 import PhoneValidation from './PhoneValidation';
@@ -28,10 +27,6 @@ render(){
 
 					<Route path="/About">
 						<About/>
-					</Route>
-
-					<Route path="/Info">
-						<Info/>
 					</Route>
 					
 					<Route path="/Map">

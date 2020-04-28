@@ -227,7 +227,7 @@ body {
   border: 1px solid black;
 }
 .loginLinksRow .loginLink_email {
-  background-color: #6C69FF;
+  background-color: #47d065;
   color: white;
   border: none;
   margin-bottom: 272px;
@@ -296,7 +296,7 @@ body {
   font-size: 14px;
   color: white;
   font-weight: bold;
-  background-color: #6C69FF;
+  background-color: #47d065;
   opacity: 0.5;
 }
 .loginScreen .passwordSendButton p {
