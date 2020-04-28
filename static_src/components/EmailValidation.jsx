@@ -40,7 +40,7 @@ handleValues = () => {
 };
 
 validateFunction=()=>{
-  const regular = /\w+\@{1}\w+\.[a-z]{2,3}/g;
+  const regular = /\w+\@{1}\w+\.[a-z]{2,3}$/g;
   const result = regular.exec(this.state.input);
   console.log(result);
   if(result !== null){
@@ -93,12 +93,16 @@ render(){
 				/>
 				
 				<img className="validationInputFieldIndication"src={validationSuccess}
-				style={input.length > 0 && validate != false ? {display:'block'}:{display:'none'} }
+				style={input.length > 0 && validate != false && mailUsed !== true && mailNotExist !== true ? {display:'block'}:{display:'none'} }
 				/>
 				
 				<img className="validationInputFieldIndication"src={validationFaild}
 				style={mailUsed === true || mailNotExist === true || validate === false ? {display:'block'}:{display:'none'} }
 				/>
+
+							<p className="validationErrorText" style={ mailNotExist === true ? {display:'block'} : {display:'none'} }>Указанный адрес не существует</p>
+							<p className="validationErrorText" style={ mailUsed === true ? {display:'block'} : {display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
+							<p className="validationErrorText" style={ codeSended === true ? {display:'block'} : {display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
 			
 			</div>
 			
@@ -119,14 +123,13 @@ render(){
      
      			<img className="validationInputFieldIndication"src={validationFaild}
         		style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
-      			/>
-						<p className="validationErrorText" style={mailNotExist === true ? {display:'block'}:{display:'none'} }>Указанный адрес не существует</p>
-						<p className="validationErrorText" style={mailUsed === true ? {display:'block'}:{display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
-						<p className="validationErrorText" style={codeSended === true ? {display:'block'}:{display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
+      			/>	
+						
+							
 		
-				</div>
-				</div>
+					</div>
 			</div>
+		</div>
 
 				<button className="passwordSendButton" 
 				

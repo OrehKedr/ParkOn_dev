@@ -153,10 +153,12 @@ body {
   text-align: center;
 }
 .map .mapFrame {
-  width: 320px;
+  width: 311px;
   height: 471px;
   border: 0;
   border: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 .map .mapLoaderText {
   position: absolute;

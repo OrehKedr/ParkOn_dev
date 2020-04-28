@@ -35,12 +35,11 @@ handleValues = () => {
   
   const { input } = this.state;
     this.forceUpdate();
-  
  if (input.length > 11) {
-  this.validateFunction()
-    this.setState({input:input})
+  this.validateFunction();
+  return(null);
   }else{
-
+    
   }
 };
 
@@ -49,18 +48,18 @@ validateFunction=()=>{
   const regular = /\+[7]{1}[\(]{1}\d{3}[\)]{1}\d{3}[-]{1}\d{2}[-]{1}\d{2}/g;
   const result = regular.exec(this.state.input);
   console.log(result);
-  if(result !== null){
-  this.setState({validate:true})
-  }else{
-  this.setState({validate:false})
+    if(result !== null){
+      this.setState({validate:true})
+    }else{
+      this.setState({validate:false})
   }
 };
 
 
 generateCommonCode=()=>{
-let code = Math.floor(Math.random()*100000)
-console.log(code);
-this.setState({generatedCode:code})
+  let code = Math.floor(Math.random()*100000)
+  console.log(code);
+    this.setState({generatedCode:code})
 };
 
 
@@ -71,11 +70,15 @@ validationButtonHandler = (e) => {
     if(codeSended != true && input.length > 15 && validate === true){
       const generated = this.generateCommonCode();
         this.setState({codeSended:true});
-    }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true){
+    
+    }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
       window.location = "/Map";
-    }else{
+    
+    }else if(validate === true && codeSended === true){
       alert("Вы ввели некорректный код");
-    };
+    }else{
+      alert('Вы ввели не верный номер телефона');
+    }
 
       
 
