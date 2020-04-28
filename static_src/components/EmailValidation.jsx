@@ -10,6 +10,7 @@ export default class LoginEmail extends React.Component {
 
 	state={
 		input:' ',
+		validate:' ',
 		mailNotExist:' ',
 		mailUsed:' ',
 		generatedCode:' ',
@@ -21,6 +22,7 @@ export default class LoginEmail extends React.Component {
 inputHandler = (event) =>{
 setTimeout(()=>{
 this.setState({input: event.target.value});
+	this.validateFunction();
 	this.handleValues(event);
 	},100);
 };
@@ -37,12 +39,23 @@ handleValues = () => {
   }
 };
 
+validateFunction=()=>{
+  const regular = /\w+\@{1}\w+\.[a-z]{2,3}/g;
+  const result = regular.exec(this.state.input);
+  console.log(result);
+  if(result !== null){
+  this.setState({validate:true})
+  }else{
+  this.setState({validate:false})
+  }
+};
+
   validationButtonHandler = () => {
-  	const {codeSended,generatedCode,passwordInput,input} = this.state;
+  	const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
   	if(codeSended != true && input.length > 5){
   		this.setState({codeSended:true});
   		this.generateCommonCode();
-  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode){
+  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){
       window.location = "/Map";
   	}else {
   		alert("something went wrong");	
@@ -64,7 +77,7 @@ this.setState({passwordInput:Number(value) });
 
 
 render(){
-	const {mailUsed,mailNotExist,codeSended,passwordInput,generatedCode,input} = this.state;
+	const {mailUsed,mailNotExist,codeSended,passwordInput,generatedCode,input,validate} = this.state;
 	return (
 
 	<div className="loginScreen">
@@ -80,11 +93,11 @@ render(){
 				/>
 				
 				<img className="validationInputFieldIndication"src={validationSuccess}
-				style={mailUsed === false && mailNotExist === false && input.length >= 5 ? {display:'block'}:{display:'none'} }
+				style={input.length > 0 && validate != false ? {display:'block'}:{display:'none'} }
 				/>
 				
 				<img className="validationInputFieldIndication"src={validationFaild}
-				style={mailUsed === true || mailNotExist === true ? {display:'block'}:{display:'none'} }
+				style={mailUsed === true || mailNotExist === true || validate === false ? {display:'block'}:{display:'none'} }
 				/>
 			
 			</div>
@@ -117,7 +130,7 @@ render(){
 
 				<button className="passwordSendButton" 
 				
-							style={input.length < 5 || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}
+							style={validate !== true || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}
 							       								   
 				
 																	
