@@ -132,11 +132,7 @@ render(){
 		</div>
 
 				<button className="passwordSendButton" 
-				
-							style={validate !== true || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}
-							       								   
-				
-																	
+						style={validate !== true || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}		
 						onClick={ ()=>{this.validationButtonHandler(event)}}> 
 
 					<p style={codeSended == false ? {display:'block'} : {display:'none'}}>Выслать код</p>
