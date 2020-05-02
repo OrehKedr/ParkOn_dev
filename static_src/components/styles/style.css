@@ -80,11 +80,11 @@ body {
 }
 .mainScreen .logo {
   display: block;
-  width: 201px;
-  height: 75px;
+  width: 246px;
+  height: 99px;
   position: relative;
   top: 35%;
-  left: 20%;
+  left: 15%;
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
   -webkit-animation-name: logo;
@@ -410,14 +410,11 @@ body {
 .letsBegin {
   display: block;
   width: 280px;
-  font-weight: 900;
+  font-weight: normal;
   font-size: 14px;
   text-align: center;
   padding: 58px 19px 72px 19px;
   font-weight: 100;
-}
-.letsBegin:first-child {
-  font-weight: 900;
 }
 .skip {
   background-color: transparent;
@@ -436,6 +433,16 @@ body {
 .training {
   width: 308px;
   height: 598px;
+  -webkit-animation: "welcomeAnimation" 1s ease-in;
+          animation: "welcomeAnimation" 1s ease-in;
+}
+@keyframes welcomeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .trainingWelcome {
   display: block;
@@ -456,6 +463,16 @@ body {
   width: 320px;
   height: 568px;
   text-align: center;
+  -webkit-animation: welcomeAnimation 1s ease-in;
+          animation: welcomeAnimation 1s ease-in;
+}
+@keyframes welcomeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .done {
   background-color: #47d065;
@@ -489,6 +506,16 @@ body {
   width: 221px;
   height: 97px;
   font-size: 14px;
+  -webkit-animation: welcomeAnimation 4s ease-in-out;
+          animation: welcomeAnimation 4s ease-in-out;
+}
+@keyframes welcomeAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .advice__firstAdvise {
   padding-top: 26px;
@@ -623,7 +650,7 @@ body {
   .mainScreen .logo {
     display: block;
     width: 250px;
-    height: 70px;
+    height: 50px;
     position: relative;
     top: 20%;
     left: 35%;

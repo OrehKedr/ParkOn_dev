@@ -20,7 +20,7 @@ export default class Training extends React.Component {
                       <p>
                         Регистрация завершена.
                         <br/>
-                        Хотите пройти обучение?
+                        <span style={ {color:'gray'} }>Хотите пройти обучение?</span>
                       </p>
                 </div>
       

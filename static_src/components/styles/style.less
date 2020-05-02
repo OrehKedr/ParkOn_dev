@@ -66,11 +66,11 @@ height: 100%;
   }
   .logo{
     display: block;
-    width: 201px;
-    height: 75px;
+    width: 246px;
+    height:99px;
     position:relative;
     top: 35%;
-    left: 20%;
+    left: 15%;
     animation-duration: 1.5s;
     animation-name: logo;
   }
@@ -320,14 +320,12 @@ text-align: left;
 .letsBegin {
   display: block;
   width: 280px;
-  font-weight: 900;
+  font-weight: normal;
   font-size: 14px;
   text-align: center;
   padding: 58px 19px 72px 19px;
   font-weight: 100;
-  &:first-child{
-  font-weight: 900;
-  }
+
 }
 
 .skip {
@@ -348,6 +346,15 @@ text-align: left;
   .training {
     width: 308px;
     height: 598px;
+     animation:"welcomeAnimation" 1s ease-in;
+  @keyframes welcomeAnimation {
+    from{
+      opacity:0;
+    }
+    to{
+      opacity:1;
+    }
+  }
   }
 
 
@@ -364,6 +371,7 @@ text-align: left;
     align-items: center;
     text-align: center;
     padding: 58px 40px 72px 40px;
+
 }
 
 
@@ -372,6 +380,15 @@ text-align: left;
   width: 320px;
   height: 568px;
 text-align: center;
+ animation:welcomeAnimation 1s ease-in;
+  @keyframes welcomeAnimation {
+    from{
+      opacity:0;
+    }
+    to{
+      opacity:1;
+    }
+  }
 }
 
 .done {
@@ -400,9 +417,19 @@ text-align: center;
     display: block;
     width: 221px;
     height:97px; 
-    font-size: 14px;   
+    font-size: 14px; 
+    animation:welcomeAnimation 4s ease-in-out;
+  
   }
   }
+  @keyframes welcomeAnimation {
+    from{
+      opacity:0;
+    }
+    to{
+      opacity:1;
+    }
+  }  
   .advice__firstAdvise{
     padding-top: 26px;
   }
@@ -530,7 +557,7 @@ height: 1334px;
 .logo{
     display: block;
     width: 250px;
-    height: 70px;
+    height: 50px;
     position:relative;
     top: 20%;
     left: 35%;
