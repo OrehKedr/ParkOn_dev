@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom";
 import PropTypes from "prop-types";
 import logo from "./img/logo.png";
-import background from "./img/backgroundMain.png";
 import {Link} from "react-router-dom";
 
 
@@ -14,21 +13,19 @@ loggedIn:'no',
 };
 
 
-searchHandle = (e) => { 
-alert('test');
+loaddingRedirect = () => {
+setTimeout( ()=>{
+window.location="/Welcome";
+},3000) 
 };
 
 
 
 render(){
+	this.loaddingRedirect();
 	return (
-	<div className='mainScreen' style={{backgroundImage:`url(${background})`} }>
-			 <p>loged in: {this.state.loggedIn}</p>
-			 <Link to='/About' className='aboutLink'>About</Link>
+	<div className='mainScreen' >
 		<img src={logo} className="logo"/>
-			 <Link to='/Map/' className="searchButton"
-			 >Найти место
-			 </Link>
 		</div>
 	);
   }
