@@ -407,9 +407,22 @@ body {
   background-color: #47d065;
   color: white;
 }
+.letsBegin {
+  display: block;
+  width: 280px;
+  font-weight: 900;
+  font-size: 14px;
+  text-align: center;
+  padding: 58px 19px 72px 19px;
+  font-weight: 100;
+}
+.letsBegin:first-child {
+  font-weight: 900;
+}
 .skip {
-  background-color: #47d065;
-  color: white;
+  background-color: transparent;
+  color: black;
+  border: none;
   margin-bottom: 272px;
   display: block;
   width: 266px;
@@ -417,7 +430,7 @@ body {
   line-height: 42px;
   margin: 10px 25px;
   text-decoration: none;
-  border: none;
+  border: 1px solid black;
   border-radius: 10px;
 }
 .training {
@@ -425,20 +438,6 @@ body {
   height: 598px;
 }
 .trainingWelcome {
-  display: block;
-  width: 237px;
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 30px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
-  padding: 58px 40px 72px 40px;
-}
-.letsBegin {
   display: block;
   width: 237px;
   font-family: Roboto, sans-serif;

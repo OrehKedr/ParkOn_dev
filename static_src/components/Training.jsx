@@ -16,10 +16,13 @@ export default class Training extends React.Component {
 
     render(){
         return <div className="training">
-          <h1 className="trainingWelcome">Вы успешно авторизовались</h1>
                 <div className="letsBegin">
-                          <p>Давайте начнем</p>
-                      </div>
+                      <p>
+                        Регистрация завершена.
+                        <br/>
+                        Хотите пройти обучение?
+                      </p>
+                </div>
       
       <div className="loginLinksRow">
                      <Link to="/LetsTraining" className="LetsTrainingLink" >

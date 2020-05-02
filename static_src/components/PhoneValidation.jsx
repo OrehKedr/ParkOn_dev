@@ -15,7 +15,7 @@ export default class LoginPhone extends React.Component {
     generatedCode:null,
     codeSended:false,
     apiUrl:'`https:\//sms.ru/sms/send?api_id=EDC6C1CA-CEE9-8205-1640-134DAFB6127E&to=79998458541,74993221627&msg=${this.state.generatedCode}&json=1`',
-    
+    authorised:" ",
   };
 
 
@@ -72,7 +72,11 @@ validationButtonHandler = (e) => {
         this.setState({codeSended:true});
     
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
+     if(this.state.authorized === true){
       window.location = "/Map";
+     }else{
+      window.location ="/Training";
+     };
     
     }else if(validate === true && codeSended === true && generatedCode === passwordInput){
       alert("Вы ввели некорректный код");
