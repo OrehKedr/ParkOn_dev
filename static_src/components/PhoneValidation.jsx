@@ -10,52 +10,75 @@ export default class LoginPhone extends React.Component {
 
 	state={
     input:' ',
+    validate:' ',
     passwordInput:' ',
     generatedCode:null,
-	  serverRequest:`http:\//localhost:3000/`,
     codeSended:false,
     apiUrl:'`https:\//sms.ru/sms/send?api_id=EDC6C1CA-CEE9-8205-1640-134DAFB6127E&to=79998458541,74993221627&msg=${this.state.generatedCode}&json=1`',
+    
   };
 
 
 inputHandler=()=>{
-this.setState({input: event.target.value });
+const number = Number(event.target.value);
+this.setState( { input:event.target.value });
   setTimeout(()=>{
+    this.validateFunction();
   this.handleValues();
   },100);
 };
 
-handleValues = () => {
-  this.forceUpdate();
-  if (this.state.input.length > 11) {
-    this.setState({input:this.state.input})
-  }else{
 
-  setTimeout( () => {
-      this.setState({mailString:true});
-  },100)
+
+
+handleValues = () => {
+  
+  const { input } = this.state;
+    this.forceUpdate();
+ if (input.length > 11) {
+  this.validateFunction();
+  return(null);
+  }else{
+    
   }
 };
 
+
+validateFunction=()=>{
+  const regular = /\+[7]{1}[\(]{1}\d{3}[\)]{1}\d{3}[-]{1}\d{2}[-]{1}\d{2}/g;
+  const result = regular.exec(this.state.input);
+  console.log(result);
+    if(result !== null){
+      this.setState({validate:true})
+    }else{
+      this.setState({validate:false})
+  }
+};
+
+
 generateCommonCode=()=>{
-let code = Math.floor(Math.random()*100000)
-console.log(code);
-this.setState({generatedCode:code})
+  let code = Math.floor(Math.random()*100000)
+  console.log(code);
+    this.setState({generatedCode:code})
 };
 
 
 
 validationButtonHandler = (e) => {
-  const {codeSended,input,generatedCode,passwordInput} = this.state;
+  const {codeSended,input,generatedCode,passwordInput,validate} = this.state;
     
-    if(codeSended != true && input.length > 15/*  ==================  */){
+    if(codeSended != true && input.length > 15 && validate === true){
       const generated = this.generateCommonCode();
         this.setState({codeSended:true});
-    }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode){
+    
+    }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
       window.location = "/Map";
-    }else{
+    
+    }else if(validate === true && codeSended === true){
       alert("Вы ввели некорректный код");
-    };
+    }else{
+      alert('Вы ввели не верный номер телефона');
+    }
 
       
 
@@ -92,7 +115,7 @@ this.setState({passwordInput:Number(value) });
 
 
 render(){
-const {codeSended,generatedCode,passwordInput,input} = this.state;
+const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
 	return (
 		<div className="loginScreen">
     
@@ -100,6 +123,7 @@ const {codeSended,generatedCode,passwordInput,input} = this.state;
      
         <p>Введите номер телефона</p>
           <div className="inputRowComponent">
+
             <input onChange={this.inputHandler} 
                    className="validationInputField"
                    placeholder="+7(___)___-__-__"
@@ -108,9 +132,12 @@ const {codeSended,generatedCode,passwordInput,input} = this.state;
             />
              
               <img className="validationInputFieldIndication"src={validationSuccess}
-        style={codeSended  === true ? {display:'block'}:{display:'none'} }
-        />
-        
+                   style={validate === true ? {display:'block'}:{display:'none'} }
+              />
+              <img className="validationInputFieldIndication"src={validationFaild}
+              style={input.length > 3 && validate !== true ? {display:'block'}:{display:'none'} }
+                />
+          
         </div>
         
         <div className="codeField" 
@@ -134,7 +161,6 @@ const {codeSended,generatedCode,passwordInput,input} = this.state;
                 <p className="validationErrorText" style={codeSended === true ? {display:'block'}:{display:'none'}, 
                 {color:"gray"} }>Мне не пришёл код.<a href="#">Отправить повторно</a></p>
         </div>
-     
       </div>
   </div>
         <button className="passwordSendButton" style={input.length > 15 || passwordInput.length > 4  ? { opacity:1} : {opacity:0.5}

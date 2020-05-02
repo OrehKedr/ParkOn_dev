@@ -24,7 +24,7 @@ render(){
 	return (
 	<div className='mainScreen' style={{backgroundImage:`url(${background})`} }>
 			 <p>loged in: {this.state.loggedIn}</p>
-			 <Link to='/About' className='aboutLink'>About</Link>
+			 <Link to='/About' className='aboutLink'>Экраны входа</Link>
 		<img src={logo} className="logo"/>
 			 <Link to='/Map/' className="searchButton"
 			 >Найти место
