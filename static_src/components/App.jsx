@@ -12,6 +12,8 @@ import EmailValidation from './EmailValidation';
 import logo from "./img/logo.png";
 import Training from "./Training";
 import Letstraining from "./Letstraining";
+import Personal from "./Personal";
+import Feedback from "./Feedback";
 
 
 
@@ -50,7 +52,16 @@ render(){
 
 					<Route path="/Letstraining">
 						<Letstraining/>
-					</Route>		
+					</Route>
+
+					<Route path="/Personal">
+						<Personal/>
+					</Route>
+
+					<Route path="/Feedback">
+						<Feedback/>
+					</Route>			
+							
 					
 					<Route path="/">
 						<MainScreen />

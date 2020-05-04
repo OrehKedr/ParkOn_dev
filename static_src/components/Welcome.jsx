@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Image4 from "./img/image4.png";
 import {Link} from "react-router-dom";
 import PhoneValidation from "./PhoneValidation";
 import EmailValidation from "./EmailValidation";
@@ -9,7 +8,6 @@ import EmailValidation from "./EmailValidation";
 export default class About extends React.Component {
 
 state={
-	images:[Image4],
 };
 
 currentSlide = () =>{

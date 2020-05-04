@@ -1,0 +1,55 @@
+{
+ "short_name": "ParkOn",
+ "name": "parkon_app",
+  "start_url": "/",
+ "background_color": "white",
+ "theme_color": "white",
+ "orientation": "any",
+ "display": "standalone",
+ "icons": [
+       {
+     "src":"../static_src/components/img/logo.png",
+     "sizes": "246x99",
+     "type": "image/png"
+   },
+     {
+     "src":"../static_src/components/img/appicon.svg",
+     "sizes": "192x192",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/markGreen.png",
+     "sizes": "39x48",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/markRed.png",
+     "sizes": "39x48",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/photo.png",
+     "sizes": "18x17",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/plus.png",
+     "sizes": "42x42",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/someicon.png",
+     "sizes": "20x20",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/validationFaild.png",
+     "sizes": "10x10",
+     "type": "image/png"
+   },
+   {
+     "src":"../static_src/components/img/validationSuccess.png",
+     "sizes": "14x10",
+     "type": "image/png"
+   }]
+}

@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import {Link} from "react-router-dom";
 import markGreen from "./img/markGreen.png";
 import markRed from "./img/markRed.png";
-import number from "./img/number.png";
-import zero from "./img/zero.png";
 import camera from "./img/photo.png";
 import findme from "./img/someicon.png";
 import plus from "./img/plus.png";
