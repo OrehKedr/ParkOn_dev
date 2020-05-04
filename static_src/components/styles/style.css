@@ -427,8 +427,8 @@ body {
   display: block;
   position: absolute;
   top: 9px;
-  right: 30px;
-  width: 12px;
+  right: 15px;
+  width: 15px;
   height: 12px;
 }
 .loginScreen .passwordSendButton {
