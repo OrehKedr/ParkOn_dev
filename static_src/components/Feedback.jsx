@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import {Link} from "react-router-dom";
-import logo from "./img/logo.png"
 
 
 export default class Feedback extends React.Component {
@@ -12,15 +11,10 @@ export default class Feedback extends React.Component {
 
     render(){
         return <div className="feedback">
-        
-        <div className="feedback_header">
-            <div className="feedback_logo">
-                <img src={logo} alt="logo"/>
-            </div>
+        <div className="topRow">
+            <p className="feedbackText">Обращение</p>
             <div className="close"></div>
         </div>
-            <p className="feedbackText">Обращение</p>
-            
 
             
             <textarea name="FeedbackArea"  cols="30" rows="10" style={{resize:"none"}}
@@ -32,12 +26,12 @@ export default class Feedback extends React.Component {
 
 <div className="send_it">
             <Link to="/Map" className="send" >
-                              Отправить
+				  			  Отправить
                                 
-                        </Link>                       
+				  		</Link>                       
                           </div>
-                
-    
+				
+	
 
             </div>
       
