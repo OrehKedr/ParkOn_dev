@@ -119,7 +119,11 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
 
 
 //----------------Отправка данных на сервер---------//
-    
+    //Эта функция находится в разработке
+
+
+
+
 
       /*fetch( this.state.apiUrl ,{
         method: 'GET',
