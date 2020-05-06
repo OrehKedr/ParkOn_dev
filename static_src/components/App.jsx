@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MainScreen from './MainScreen';
 import PropTypes from "prop-types";
-import style from "./styles/style.css";
+import style from "./styles/style.min.css";
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Map from "./Map";
 import Welcome from './Welcome';

@@ -93,7 +93,7 @@ validationButtonHandler = (e) => {
     
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
      if(this.state.authorized === true){
-      window.location = "/Map";
+      window.location = "http:\//Map";
       }else{
       window.location ="/Training";
      };
@@ -119,7 +119,7 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
 
 
 //----------------Отправка данных на сервер---------//
-    //Эта функция находится в разработке
+    //Эта функция находится в разработк
 
 
 

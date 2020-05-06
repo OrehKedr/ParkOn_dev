@@ -1,7 +1,7 @@
 {
  "short_name": "ParkOn",
  "name": "parkon_app",
-  "start_url": "/",
+  "start_url": "localhost:8080",
  "background_color": "white",
  "theme_color": "white",
  "orientation": "any",
