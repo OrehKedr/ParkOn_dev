@@ -18,65 +18,74 @@ export default class LoginPhone extends React.Component {
     authorised:" ",
   };
 
+ 
+
+//---------------------Обработчик ввода-------------------------------------//
 
 inputHandler=()=>{
 const string = event.target.value;
 console.log(string);
 
 
-
+//-------------Маска подстановки символов в поле телефона------------------//
 
 
 const newString = string.replace( /(^8|7)(\d{3})(\d{3})(\d{2})(\d{2})/g, '+7(' + string[1]+string[2]+string[3] + ")" + string[4]+string[5]+string[6]+'-'+string[7]+string[8]+'-'+string[9]+string[10]  );
 console.log(newString);
+
+//--Отрабатывает по группам захвата.Пробелы между ними сломают регулярку--//
+
 event.target.value = newString;
-const number = Number(event.target.value);
 
 this.setState( { input:event.target.value });
   setTimeout(()=>{
-    this.validateFunction();
-  this.handleValues();
+  this.handleValues();       //Вызов обработчика значений ввода
   },100);
 };
 
 
 
 
-handleValues = () => {
+handleValues = () => { //Обработчик введённого значения телефона
   
   const { input } = this.state;
     this.forceUpdate();
  if (input.length > 11) {
-  this.validateFunction();
-  return(null);
-  }else{
-    
-  }
+  this.validateFunction(); // Вызов функции валидации
+  return(null); // Когда номер введён,перестаём изменять state при последующем вводе    
+  };
 };
 
 
-validateFunction=()=>{
+validateFunction=()=>{   //Функция валидации
+  
+  //-----------Регулярное выражение для валидации-----------------//
+
   const regular = /\+[7]{1}[\(]{1}\d{3}[\)]{1}\d{3}[-]{1}\d{2}[-]{1}\d{2}/g;
-  const result = regular.exec(this.state.input);
+  const result = regular.exec(this.state.input); //Вернёт массив с результатом либо null 
   console.log(result);
     if(result !== null){
       this.setState({validate:true})
     }else{
       this.setState({validate:false})
+
   }
 };
 
 
+//----------Фенкция генерации одноразового кода------------------//
+
 generateCommonCode=()=>{
-  let code = Math.floor(Math.random()*100000)
+  let code = Math.floor(Math.random()*100000) //Генерация от 4х до 5и знаков
   console.log(code);
-    this.setState({generatedCode:code})
+    this.setState({generatedCode:code}) 
 };
 
 
+//------------------------Функция кнопки------------------------//
 
 validationButtonHandler = (e) => {
-  const {codeSended,input,generatedCode,passwordInput,validate} = this.state;
+  const {codeSended,input,generatedCode,passwordInput,validate} = this.state;//Объявляем значения из state
     
     if(codeSended != true && input.length > 15 && validate === true){
       const generated = this.generateCommonCode();
@@ -85,17 +94,19 @@ validationButtonHandler = (e) => {
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
      if(this.state.authorized === true){
       window.location = "/Map";
-     }else{
+      }else{
       window.location ="/Training";
      };
-    
-    }else if(validate === true && codeSended === true && generatedCode === passwordInput){
+    }else if(validate === true && codeSended === true && generatedCode !== passwordInput){
       alert("Вы ввели некорректный код");
-    }else{
+    }else if(validate !== true && codeSended === true || codeSended !== true   && input.length < 15) {
       alert('Вы ввели неверный номер телефона');
-    };
+     
 
-    if (input.length === 16) {
+    //----------SMS API---------------//
+
+
+   /*if (input.length === 16) {
 fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'no-cors'})
   .then(response => { 
     console.log(response);
@@ -104,8 +115,11 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
   .then((result) => {
     console.log(result)
   })
-}
+}*/ 
 
+
+//----------------Отправка данных на сервер---------//
+    
 
       /*fetch( this.state.apiUrl ,{
         method: 'GET',
@@ -130,12 +144,17 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
       )
 */
 
+//-------------------------------------------------------//
+
+  };
 };
+
+//--------------Обработчик ввода поля пароля---------------//
 
 passwordHandler = (value) => {
 setTimeout(()=>{
-this.setState({passwordInput:Number(value) });
-},200);
+this.setState({passwordInput:Number(value) }); //Конвертируем строку ввода пароля в номер для сравнения с генерируемым кодом 
+},50);
 }
 
 
