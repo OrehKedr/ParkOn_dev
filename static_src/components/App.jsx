@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import MainScreen from './MainScreen';
 import PropTypes from "prop-types";
 import style from "./styles/style.css";
-import {useMediaQuery} from 'react-responsive';
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Map from "./Map";
 import Welcome from './Welcome';

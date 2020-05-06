@@ -916,13 +916,14 @@ body {
   display: inline-block;
   width: 266px;
   height: 40px;
-  line-height: 42px;
+  line-height: 30px;
   margin: 10px 25px;
   border: 2px solid #44f1a6;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   border-radius: 10px;
   font-style: normal;
+  background-color: transparent;
   font-weight: bold;
   font-size: 16px;
   text-decoration: none;
