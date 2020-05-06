@@ -20,7 +20,18 @@ export default class LoginPhone extends React.Component {
 
 
 inputHandler=()=>{
+const string = event.target.value;
+console.log(string);
+
+
+
+
+
+const newString = string.replace( /(^8|7)(\d{3})(\d{3})(\d{2})(\d{2})/g, '+7(' + string[1]+string[2]+string[3] + ")" + string[4]+string[5]+string[6]+'-'+string[7]+string[8]+'-'+string[9]+string[10]  );
+console.log(newString);
+event.target.value = newString;
 const number = Number(event.target.value);
+
 this.setState( { input:event.target.value });
   setTimeout(()=>{
     this.validateFunction();
