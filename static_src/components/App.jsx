@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import MainScreen from './MainScreen';
 import PropTypes from "prop-types";
-import style from "./styles/style.min.css";
+import style from "./styles/style.css";
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Map from "./Map";
 import Welcome from './Welcome';
@@ -13,6 +13,13 @@ import Training from "./Training";
 import Letstraining from "./Letstraining";
 import Personal from "./Personal";
 import Feedback from "./Feedback";
+import Changereg from "./Changereg";
+import Emailregistration from "./Emailregistration";
+import Changeauto from "./Changeauto";
+import Phonereg from "./Phonereg";
+import Emailauto from "./Emailauto";
+import Stream from "./Stream";
+
 
 
 
@@ -31,6 +38,26 @@ render(){
 
 					<Route path="/Welcome">
 						<Welcome/>
+					</Route>
+
+					<Route path="/Changereg">
+						<Changereg/>
+					</Route>
+
+					<Route path="/Emailregistration">
+						<Emailregistration/>
+					</Route>
+
+					<Route path="/Changeauto">
+						<Changeauto/>
+					</Route>
+
+					<Route path="/Emailauto">
+						<Emailauto/>
+					</Route>
+
+					<Route path="/Phonereg">
+						<Phonereg/>
 					</Route>
 					
 					<Route path="/Map">
@@ -59,6 +86,10 @@ render(){
 
 					<Route path="/Feedback">
 						<Feedback/>
+					</Route>	
+
+					<Route path="/Stream">
+						<Stream/>
 					</Route>			
 							
 					

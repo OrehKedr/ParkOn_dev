@@ -22,12 +22,12 @@ render(){
 		в ParkOn
 		</p>
 			    <div className="loginLinksRow">
-				 	    <Link to="/PhoneValidation" className="loginLink" >
-				  			  Войти по номеру телефона
+				 	    <Link to="/Changeauto" className="loginLink" >
+				  			  Войти
 				  		</Link>
 				
-						<Link to="/EmailValidation" className="loginLink loginLink_email">
-							  Войти по адресу эл. почты 
+						<Link to="/Changereg" className="loginLink">
+							  Зарегистрироваться 
 						</Link>
 				</div>
 			  </div>

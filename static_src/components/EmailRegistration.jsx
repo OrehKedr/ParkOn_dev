@@ -6,7 +6,7 @@ import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 
 
-export default class LoginEmail extends React.Component {
+export default class Emailregistration extends React.Component {
 
 	state={
 		input:' ',
@@ -81,19 +81,27 @@ render(){
 	return (
 
 	<div className="loginScreen">
+<div className="regwrapper">
 
-<div className="loginScreen email">
+		<div className="registration">
+			<h1>Регистрация</h1>
+		</div>
 	
 		<div className="validationInputRow">
 			
-			<p>Введите адрес эл.почты</p>
+			<p>Электронная почта</p>
 			<div className="inputRowComponent">
 			
-				<input onChange={()=> {this.inputHandler(event)}} 
+					<input onChange={()=> {this.inputHandler(event)}} 
 						className="validationInputField"
 						placeholder="ivanov.ivan@mail.ru"
-
 				/>
+
+<p className="validationErrorText" style={validate === false ? {display:'block'}:{display:'none'}
+                 }>Адрес введён неправильно.<a href="/Emailauto">Попробуйте ещё раз</a></p>
+
+<p className="validationErrorText" style={ mailNotExist === true ? {display:'block'} : {display:'none'} }>Указанный адрес не зарегистрирован</p>
+							<p className="validationErrorText" style={ mailUsed === true ? {display:'block'} : {display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
 				
 				<img className="validationInputFieldIndication"src={validationSuccess}
 				style={input.length > 0 && validate != false && mailUsed !== true && mailNotExist !== true ? {display:'block'}:{display:'none'} }
@@ -105,7 +113,7 @@ render(){
 
 							<p className="validationErrorText" style={ mailNotExist === true ? {display:'block'} : {display:'none'} }>Указанный адрес не существует</p>
 							<p className="validationErrorText" style={ mailUsed === true ? {display:'block'} : {display:'none'} }>Указанный адрес уже используется.Нажмите <a href="/About">Войти</a></p>
-							<p className="validationErrorText" style={ codeSended === true ? {display:'block'} : {display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
+							
 			
 			</div>
 			
@@ -120,6 +128,8 @@ render(){
 						maxLength="5"
 						onChange={ ()=>{this.passwordHandler(event.target.value)}}
 					/>
+
+<p className="validationErrorText" style={ codeSended === true ? {display:'block'} : {display:'none'} }>Не получили код?Нажмите <a href="#">Выслать ещё раз</a></p>
 				 <img className="validationInputFieldIndication"src={validationSuccess}
         			  style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
      			  />
@@ -140,7 +150,7 @@ render(){
 
 					<p style={codeSended == false ? {display:'block'} : {display:'none'}}>Выслать код</p>
 					<p style={codeSended == true ? {display:'block'} : {display:'none'}}>Войти</p>
-				 
+					
 				 </button>
 				 </div>
 		</div>

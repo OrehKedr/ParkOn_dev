@@ -19,6 +19,7 @@ export default class Personal extends React.Component {
         <div className="personal">
             <div className="personal_top">
                 <div className="personal_header">
+                
                   <div className="feedback_logo">
                       <img src={logo} alt="logo"/>
                   </div>

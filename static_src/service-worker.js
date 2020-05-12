@@ -34,7 +34,7 @@ self.addEventListener('install', function(event) {
                       .then(assets => {
                       // Открываем и кэшируем нужные страницы и файлы
                           const urlsToCache = [
-                           '/static/build/app.js',
+                           '/',
                            './static_src/components/App',
                            './static_src/components/MainScreen',
                            './static_src/components/Welcome',

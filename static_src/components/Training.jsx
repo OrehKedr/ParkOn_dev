@@ -18,18 +18,18 @@ export default class Training extends React.Component {
         return <div className="training">
                 <div className="letsBegin">
                       <p>
-                        Регистрация завершена.
+                        Регистрация
                         <br/>
-                        <span style={ {color:'gray'} }>Хотите пройти обучение?</span>
+                        прошла успешноs
                       </p>
                 </div>
       
       <div className="loginLinksRow">
-                     <Link to="/LetsTraining" className="LetsTrainingLink" >
-                        Перейти к обучению
+                     <Link to="/LetsTraining" className="loginLink" >
+                        Краткое обучение
                     </Link>
               
-                  <Link to="/Map" className="skip">
+                  <Link to="/Map" className="loginLink">
                       Пропустить 
                   </Link>
               </div>
