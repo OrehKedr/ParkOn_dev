@@ -6,31 +6,11 @@ body{
   margin:0;
   width:100vw;
   height: 100vh;
-  min-width: 320px;
-  max-width: 450px;
-  min-height: 568px;
-  max-height: 812px;
   font-family: 'Josefin Sans', sans-serif;
-
-
-  @media screen and (min-width: 451px) {
-    min-width: 450px;
-    max-width: 768px;
-    min-height: 820px;
-    max-height: 1024px;
-  }
 
 }
 .App{
 height: 100%;
-}
-.loader{
-  display:block;
-  width: 100%;
-  height: 100vh;
-  text-align: center;
-  position: absolute;
-  top: 25%;
 }
 #root{
   display: block;
@@ -414,6 +394,7 @@ p {
   }
   }
   }
+}
   .passwordSendButton{
     display: inline-block;
     width: 90%;
@@ -447,10 +428,8 @@ p {
     color: black;
     }
   }
-
-
-
-}.LetsTrainingLink {
+.LetsTrainingLink 
+{
   display: block;
   width: 266px;
   height: 40px;
@@ -1046,10 +1025,34 @@ a:-webkit-any-link {
 }
 #Stream{
   canvas{
+    display:inline-block;
     width: 90%;
     padding: 20px 5%;
+    text-align: center;
   }
+  .player{
+    position: relative;
+    .terminatedText{
+      position: absolute;
+      top: 30%;
+      left:15%;
+      z-index:100;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      background-color: #bb0e59;
+      padding: 10px;
+      border-radius: 10px; 
+      @media screen and (min-width: 375px){
+      left: 20%;
+      }
+    }
 }
+    .streamActions__button{
+      margin: 0 auto;
+      opacity: 1;
+    }
+  }
 
 
 

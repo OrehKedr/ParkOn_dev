@@ -12,14 +12,17 @@ export default class Stream extends React.Component {
     	streamID:' ',
       userID:' ',
       portID:9001,
+      terminated:false,
     };
 
 
     componentDidMount() {
       console.log('mount');
       this.requestsAxios();
+      this.playerRendering();
 
     };
+
 
 
     getStream = () => {
@@ -64,19 +67,57 @@ export default class Stream extends React.Component {
       const player = new JSMpeg.Player(streamURL, {canvas:canvas} );
       console.log('player create');
       },800);
+    };
+
+
+
+    streamActions=()=>{
+      if (this.state.terminated === false || undefined) {
+
+      axios.post(`http:\//localhost:3000/api/stream/close/${this.state.streamID}`,{id:`${this.state.userID}`})
+      .then((response)=>{
+          this.setState({terminated:true})
+      })
+     }else{
+      this.setState({terminated:false})
+      this.playerRendering();
+      this.getStreamPort();
+     }
     }
 
 
 
     render(){
-      const {portid} = this.state;
-      console.log(this.state.portID);
-      const player = this.playerRendering();
+      const {portID,terminated} = this.state;
+      console.log(portID);
         return (
         <div id="Stream">
+          
           <div className="player">
-        	<canvas id="canvas"></canvas>
+                          <p className="terminatedText"
+                           style={terminated === true ? {display:"block"}:{display:'none'} }>
+                           Трансляция остановлена
+                           </p>
+        	     <canvas id="canvas"></canvas>
+          
+                  <button  className="passwordSendButton streamActions__button"
+                       onClick={()=>{this.streamActions()}}
+                       style={terminated === true || undefined ? {display:'block'}:{display:'none'}} >
+                       <p>Начать трансляцию</p>
+                  </button>          
+
+
+
+               <button  className="passwordSendButton streamActions__button"
+                    onClick={()=>{this.streamActions()}} 
+                    style={terminated === false || undefined ? {display:'block'}:{display:'none'}} >
+                    <p>Завершить трансляцию</p>
+               </button>          
+
+
+
           </div>
+
         </div>
 
       	);
