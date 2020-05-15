@@ -26,7 +26,6 @@ export default class MapModule extends React.Component{
 
     handleApiAvaliable = ymaps => {
         this.ymaps = ymaps;
-        console.log(this.ymaps);
     };
 
     addRoute = () => {
@@ -65,7 +64,6 @@ export default class MapModule extends React.Component{
     };
 
     removeRoute = () => {
-        console.log(this.homeRoute);
         this.map.geoObjects.remove(this.homeRoute);
         this.setState({
             showRoute: false,
