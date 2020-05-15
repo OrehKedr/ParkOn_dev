@@ -12,7 +12,7 @@ export default class MapModule extends React.Component{
     };
     state = {
         map: null,
-        ymaps: null,
+        ymaps: {},
         homeRoute: {},
         geolocation: null,
         showRoute: false,
@@ -26,6 +26,7 @@ export default class MapModule extends React.Component{
 
     handleApiAvaliable = ymaps => {
         this.ymaps = ymaps;
+        console.log(this.ymaps);
     };
 
     addRoute = () => {
@@ -51,14 +52,14 @@ export default class MapModule extends React.Component{
                     // Задаем собственную картинку для последней путевой точки.
                     wayPointFinishIconLayout: "default#image",
                     wayPointFinishIconImageSize: [30, 30],
-                    wayPointFinishIconImageOffset: [-15, -15]
+                    //wayPointFinishIconImageOffset: [-15, -15]
                 }
             );
 
              this.map.geoObjects.add(multiRoute);
+             this.homeRoute = multiRoute;
             this.setState({
                 showRoute: true,
-                homeRoute: multiRoute,
             });
         }
     };
@@ -77,13 +78,13 @@ export default class MapModule extends React.Component{
         const { coordinates } = this.props;
         const { mapData, showRoute } = this.state;
         const homeButton = <Button
-                options={{maxWidth: 128 ,  position: {right: "50%", bottom: 100}}}
+                options={{maxWidth: 128 ,  position: {right: "40%", bottom: 100}}}
                 data={{content: 'Закрыть'}}
                 onClick={this.removeRoute}
             />;
 
         const closeButton = <Button
-                options={{maxWidth: 128 ,  position: {right: "50%", bottom: 100}}}
+                options={{maxWidth: 128 ,  position: {right: "40%", bottom: 100}}}
                 data={{content: 'Домой'}}
                 onClick={this.addRoute}
             />;
