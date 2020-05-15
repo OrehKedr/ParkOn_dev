@@ -1,4 +1,5 @@
 @maincolor:#44F1A6;
+@adaptiveFont:25px;
 
 
 body{
@@ -7,74 +8,17 @@ body{
   width:100vw;
   height: 100vh;
   font-family: 'Josefin Sans', sans-serif;
-
 }
+
 .App{
 height: 100%;
+
 }
+
 #root{
   display: block;
   width: 100%;
   height: 100%; 
-
-}
-
-.aboutScreen {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.welcomeScreen {
-  
-  height: 100%;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-}
-.choosereg{
-  display: inline-block;
-  width: 280px;
-height: 105px;
-text-align: center;
-margin: 0;
-font-size: 22px;
-
-@media screen and (min-width: 451px) {
-  font-size: 34px;
-    width: 80%;
-    line-height: 1.6;
-}
-}
-.registration {
-  display: block;
-  align-items: center;
-  text-align: center;
-  width: 90%;
-  height: 26px;
-  padding:80px 5%;
-
-
-  @media screen and (min-width: 451px) {
-    font-size: 44px;
-  }
-
-  h1 {
-    @media screen and (min-width: 451px) {
-      font-size: 44px;
-    }
-  }
-}
-
-.regwrapper {
-  display: block;
-  width: 80%;
-  height: 100vh;
-  padding: 0 10%;
-  text-align: center;
 }
 
 .mainScreen{
@@ -83,49 +27,17 @@ font-size: 22px;
   justify-content: center;
   width: 100%;
   height: 100%;
-  // display: block;
-  // position: absolute;
-  // top: 0;
-  // left: 0;
-  // right: 0;
-  // bottom: 0;
   z-index: 1;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  // width:320px;
-  // height: 568px;
   animation:mainscreen 1s ease-in;
-  p{
-  position: relative;
-  z-index: 3;
-  float: right;
-  }
-  .aboutLink{
-  text-decoration: none;
-  position: relative;
-  top: 16px;
-  left: 20px;   
-  }
-  @keyframes mainscreen{
-  from{
-    filter:brightness(0);
-  }
-  to{
-    filter:brightness(1);
-  }
-  }
   .logo{
-    // display: block;
-    // width: 246px;
-    // height:99px;
-    // position:relative;
-    // top: 35%;
-    // left: 15%;
     animation-duration: 1.5s;
+    margin: auto auto;
     animation-name: logo;
   }
-      @keyframes logo{
+   @keyframes logo{
     from{
     opacity:0;
     }
@@ -135,170 +47,107 @@ font-size: 22px;
     70%{
     opacity: 0;
     }
-    } 
+  } 
 }
-  .searchButton {
-    display: inline-block;
-    position: absolute;
-    width: 110px;
-    height: 30px;
-    line-height: 31px;
-    font-size: 15px;
-    text-align: center;
-    bottom: 30%;
-    left: 35%;
-    border: none;
-    border-radius: 10px;
-    height: 30px;
-    font-weight: bold;
-    background-color:#02DA35;
-    color: white;
-    text-decoration: none;
-    transition: 1s;
-    animation:searchButton 2s ease-in;
-    @media Tablet {
-      font-size: 18px;
+
+
+.welcomeScreen {
+  display: block;
+  width: 100%; 
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  @media screen and (min-width: 375px) {
+    padding-top: 120px;
+  }
+.welcomeText{
+  display: block;
+  width: 100vw;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 22px;
+  line-height: 30px;
+  text-align: center;
+  animation:"welcomeAnimation" 1s ease-in;
+    @media screen and (min-width: 375px) {
+    font-size: 26px;
     }
-    @keyframes searchButton{
+    @keyframes welcomeAnimation {
       from{
-      opacity: 0;
-      margin-bottom:-400px;
+        opacity:0;
       }
       to{
-        opacity: 1;
-        margin-bottom:0px;  
-      }
-      95%{
-        opacity: 0;
+        opacity:1;
       }
     }
-    &:hover{
-    transition: 1s;
-    transform:scale(1.2);
-    }
   }
-  .map{
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    .mapFrame{
-      width:311px;
-      height:471px;
-      border:0;
-        border:none;
-        box-sizing: border-box;
-    }
-      .mapLoaderText{
-      position:absolute;
-      width:auto;
-      top:50%;
-      left:30%;
-      z-index:-1;
-      font-size: 18px; 
-  }
-}
-
-
-
-  .linksList {  
-    display: block;
-    width: 100%;
-    position: relative;
-    top: 0;
-    left: 0;
-
-  ul{
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    width: 100%;
-    height: 15px;
-    position: relative;
-    top:0;
-    left: 0;
-    z-index: 2;
-    list-style: none;
-    padding: 10px 0;
-    margin:0;
-    background-color: #02DA35;
-
-  }
-}
-.welcomeText{
-display: block;
-width: 237px;
-font-family: Roboto,sans-serif;
-font-style: normal;
-font-weight: 900;
-font-size: 22px;
-line-height: 30px;
-align-items: center;
+.choosereg{
+  display: inline-block;
+  width: 280px;
   text-align: center;
-  // padding:58px 40px 72px 40px;
-  margin: 0;
-  animation:"welcomeAnimation" 1s ease-in;
-  @media screen and (min-width: 451px) {
-    font-size: 38px;
-    width: 405px;
-    line-height: 54px;
+  font-size: 26px;
+  @media screen and (min-width: 375px) {
+    font-size: 26px;
+    width: 80%;
   }
-  @keyframes welcomeAnimation {
+ }
+}
+
+.loginLinksRow{
+  display: block;
+  width: 85%;
+  text-align: center;
+  padding: 50px 0 0 0;
+  animation:linksRowAnimation 1s ease-in;
+  @media screen and (min-width: 375px) {
+    
+  }
+  @keyframes linksRowAnimation {
     from{
-      opacity:0;
+      opacity: 0;
     }
     to{
       opacity:1;
     }
   }
-}
-.loginLinksRow{
-display: block;
-text-align: center;
-padding: 20px 0 0 0;
-animation:"linksRowAnimation" 1s ease-in;
-@keyframes linksRowAnimation{
-  from{
-    opacity: 0;
+  .loginLink{
+      display:block;
+      width: 90%;
+      height: 40px;
+      line-height: 40px;
+      margin:40px auto;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      background-color: @maincolor;
+      color: black;
+      font-weight: 600;
+      font-size: 16px;
+    @media screen and (min-width: 375px) {
+      font-size: @adaptiveFont;
+    }
+      &:hover {
+         background-color: transparent;
+         color: @maincolor;
+         border: 1px solid @maincolor;
+         border-radius: 10px;
+         box-sizing: border-box;
+      }
+      @media screen and (min-width: 375px) {
+        font-size: 20px;
+      }
+      &_email{
+        background-color: @maincolor;
+        color: white;
+        border: none;
+    }
   }
-  to{
-    opacity:1;
-  }
-}
-.loginLink{
-display:block;
-width: 266px;
-height: 40px;
-line-height: 42px;
-margin:10px 25px;
-text-decoration: none;
-border: none;
-border-radius: 10px;
-background-color: @maincolor;
-color: black;
-font-weight: bold;
-&:hover {
- background-color: transparent;
- color: @maincolor;
- border: 1px solid @maincolor;
- border-radius: 10px;
- box-sizing: border-box;
 }
 
-@media screen and (min-width: 451px) {
-  width: 405px;
-  height: 60px;
-  line-height: 60px;
-  margin:25px 25px;
-  font-size: 20px;
-}
-&_email{
-  background-color: @maincolor;
-  color: white;
-  border: none;
-}
-}
-}
+
+
 .loginScreen{
   display: flex;
   width: 100%;
@@ -307,196 +156,121 @@ font-weight: bold;
   flex-direction: column;
   justify-content: start;
   animation:"loginScreen" 0.5s ease-in;
-
-  &.email {
-    justify-content: center;
-  }
   @keyframes loginScreen{
     from{
       opacity:0;
     }
     to{
       opacity:1;
-
     }
   }
-  p{
-font-family: Roboto,sans-serif;
-font-style: normal;
-font-weight: normal;
-font-size: 14px;
-line-height: 16px;
-text-align: left;
-
-@media screen and (min-width: 451px) {
-  font-size: 24px;
-
-}
-  }
-  .validationErrorText{
-    padding:18px 0 18px 0;
-    margin: 0;
-    color: red;
-    font-size: 10px;
-  }
+  .registration {
+        display: block;
+        text-align: center;
+        width: 90%;
+        padding:50px 5%;
+        font-size: 22px;
+        @media screen and (min-width: 375px) {
+            padding: 80px auto 70px auto;
+        }
+      h3{
+      font-weight: normal;
+      }
+   }
+  .regwrapper {
+    display: block;
+    width: 80%;
+    height: auto;
+    padding: 0 10%;
+    text-align: center;
   .validationInputRow{
     display: flex;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     text-align: left;
-// padding: 170px 0 14px 60px;
     flex-direction: column;
     justify-content: space-between;
-
-    .validationheader {
-      text-align: left;
-    }
-
-    @media screen and (min-width: 451px) {
-      padding-bottom: 10px;
-    }
-    
-    p {
-      @media screen and (min-width: 451px) {
-        font-size: 30px;
+     p {
+       text-align: left;
       }
-    }
+        .inputRowComponent{
+          display: block;
+          position: relative;
+        .validationInputField{
+            width: 100%;
+            height: 25px;
+            margin: 0px;
+            border-radius: 5px;
+            border: 1px solid black;
+            @media screen and (min-width: 375px) {
+              height: 30px;
+              font-size: 16px;
+            }
+           }  
+            .validationErrorText{
+              width: 100%;
+              padding:18px 0;
+              margin: 0;
+              color: red;
+              font-size: 10px;
+              @media screen and (min-width: 375px){
+               font-size: 12px;
+              }
+            }
+              .validationInputFieldIndication{
+                display: block;
+                position: absolute;
+                top: 9px;
+                right: 15px;
+                width: 15px;
+                height: 12px;
+              }
+            }
+          }
+              .passwordSendButton{
+                  display: inline-block;
+                  width: 90%;
+                  height: 40px;
+                  margin:0;
+                  padding: 0 5%;
+                  border: none;
+                  border-radius: 10px;
+                  font-size: 14px;
+                  font-weight: bold;
+                  background-color:@maincolor;
+                  opacity:0.5;
+                    &:hover{
+                      color: @maincolor;
+                      background-color: transparent;
+                      border: 2px solid @maincolor;
+                    }
+                  @media screen and (min-width: 375px) {
+                    font-size: 18px;
+                  }
+                  p{
+                    display: block;
+                    width: 100%;
+                    margin: 0;
+                    line-height: 40px;
+                    text-align: center;
+                    color: black;
+                  }
+                }
+              }
+            }
 
-  .validationInputField{
-  width: 100%;
-  height: 25px;
-  margin: 0px;
-  border-radius: 5px;
-  border: 1px solid black;
 
-  @media screen and (min-width: 451px) {
-     width: 350px;
-     height: 40px;
-  }
-}
-  .inputRowComponent{
-    display: block;
-  position: relative;
-p {
-  text-align: left;
-}
-  @media screen and (min-width: 451px) {
-    padding-bottom: 25px;
-  }
-
-  .validationInputFieldIndication{
-    display: block;
-    position: absolute;
-    top: 9px;
-    right: 15px;
-    width: 15px;
-    height: 12px;
-  }
-  }
-  }
-}
-  .passwordSendButton{
-    display: inline-block;
-    width: 90%;
-    height: 40px;
-    margin:0;
-    padding: 0 5%;
-    border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    background-color:@maincolor;
-    opacity:0.5;
-    &:hover{
-      color: @maincolor;
-      background-color: transparent;
-      border: 2px solid @maincolor;
-    }
-    @media screen and (min-width: 451px) {
-      width: 300px;
-      height: 50px;
-      font-size: 18px;
-      border-radius: 16px;
-    }
-    
-    p{
-      display: block;
-    width: 100%;
-    margin: 0;
-    line-height: 40px;
-    text-align: center;
-    color: black;
-    }
-  }
-.LetsTrainingLink 
-{
-  display: block;
-  width: 266px;
-  height: 40px;
-  line-height: 42px;
-  margin: 10px 25px;
-  text-decoration: none;
-  border: none;
-  border-radius: 10px;
-  background-color: @maincolor;
-  color: white;
-  @media screen and (min-width: 451px) {
-    width: 405px;
-    height: 60px;
-    line-height: 60px;
-    margin:25px 25px;
-    font-size: 20px;
-  }
-
-}
-.letsBegin {
-  display: block;
-  width: 280px;
-  font-weight: normal;
-  font-size: 20px;
-  text-align: center;
-  // padding: 58px 19px 72px 19px;
-  font-weight: 100;
-  @media screen and (min-width: 451px) {
-    font-size: 32px;
-    width: 460px;
-    line-height: 54px;
-  }
-
-}
-
-.skip {
-  background-color: transparent;
-  color: black;
-  border: none;
-  margin-bottom: 272px;
-  display: block;
-    width: 266px;
-    height: 40px;
-    line-height: 42px;
-    margin: 10px 25px;
-    text-decoration: none;
-    border: 1px solid black;
-    border-radius: 10px;
-
-    @media screen and (min-width: 451px) {
-      width: 405px;
-      height: 60px;
-      line-height: 60px;
-      margin:25px 25px;
-      font-size: 20px;
-    }
-  }
 
   .training {
-    height: 100%;
+    display: block;
+    width: 100vw;
+    padding-top: 80px;
     display: flex;
     align-items: center;
     flex-direction: column;
     justify-content: center;
-
-
-     animation:"welcomeAnimation" 1s ease-in;
+    animation:"welcomeAnimation" 1s ease-in;
+    font-size: 22px;
   @keyframes welcomeAnimation {
     from{
       opacity:0;
@@ -505,7 +279,15 @@ p {
       opacity:1;
     }
   }
+  @media screen and (min-width: 375px) {
+    padding-top: 150px;
   }
+  h3{
+    text-align: center;
+    font-weight: bold;
+    margin: 0;
+  }
+}
 
 
 .trainingWelcome {
@@ -516,9 +298,6 @@ p {
     font-weight: 900;
     font-size: 22px;
     line-height: 30px;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     text-align: center;
     padding: 58px 40px 72px 40px;
 
@@ -526,12 +305,8 @@ p {
 
 
 .mainadvise {
-//   display: block;
-//   width: 320px;
-//   height: 568px;
-// text-align: center;
-height: 100%;
 display: flex;
+height: 100%;
 align-items: center;
 flex-direction: column;
 justify-content: center;
@@ -560,9 +335,7 @@ justify-content: center;
     border: none;
     border-radius: 10px;
     text-align: center;
-    @media screen and (min-width: 451px) {
-      width: 405px;
-      height: 60px;
+    @media screen and (min-width: 375px) {
       margin-top: 20px;
       font-size: 24px;
       display: flex;
@@ -579,22 +352,25 @@ justify-content: center;
     flex-direction: row;
     justify-content: center;
     text-align: left;
-    padding: 10px 0;
+    padding: 20px 0;
     width: 100%;
-    // padding:10px 24px 10px 24px;
+    @media screen and (min-width: 375px) {
+      padding: 20px 0;
+    }
+    @media screen and (min-width: 393px) {
+    padding: 10px 0;      
+    }
   .adviceText{
     display: block;
-    width: 65%;
-      
+    width: 75%;
+    padding: 0 5px;
     font-size: 14px; 
     animation:welcomeAnimation 4s ease-in-out;
-
-    @media screen and (min-width: 451px) {
-      width: 70%;
-      font-size: 28px;
+      @media screen and (min-width: 375px) {
+        font-size: 18px;
+        padding:0 10px;
+      }
     }
-  
-  }
   }
   @keyframes welcomeAnimation {
     from{
@@ -604,9 +380,6 @@ justify-content: center;
       opacity:1;
     }
   }  
-  .advice__firstAdvise{
-    padding-top: 26px;
-  }
 
   .greenicon {
   display: block;
@@ -615,14 +388,6 @@ justify-content: center;
     height: 48px;
     text-align: center;
     margin: auto 10px;
-
-    @media screen and (min-width: 451px) {
-      background:url(/static_src/components/img/markGreen.png) no-repeat  center;
-    width: 95px;
-    height: 50px;
-     
-    }
-
 
 }
 .ico {
@@ -644,15 +409,6 @@ justify-content: center;
   height: 49px;
   text-align: center;
   margin: auto 10px;
-
-  @media screen and (min-width: 451px) {
-  display: block;
-    background: url(/static_src/components/img/markRed.png) no-repeat center;
-    width: 95px;
-    height: 50px;
-    text-align: center;
-    margin: auto 10px;
-  }
 }
 
 
@@ -662,13 +418,7 @@ justify-content: center;
   justify-content: flex-start;
   width: 39px;
   height: 96px;
-  
   margin: auto 10px;
-  @media screen and (min-width: 451px)  {
-    width: 95px;
-    height: 85px;
-    align-items: center;
-  }
 
 }
 
@@ -679,7 +429,7 @@ justify-content: center;
   height: 32px;
   border-radius: 50%;
   background-color: white;
-  margin-bottom: 10px;
+  margin:0 auto 10px auto;
   box-shadow: 0 0 9px rgba(0,0,0,0.5);
 }
 .circle__plus{
@@ -731,10 +481,6 @@ left: 19%;
     box-shadow: 0 0 9px rgba(0,0,0,0.5);
     text-align: center;
     margin: auto 10px;
-
-    @media screen and (min-width: 451px)  {
-      margin: auto 40px;
-    }
 .findIcon{
   display:inline-block;
   width: 20px;
@@ -761,11 +507,10 @@ left: 19%;
     height: 50%;
     border-radius:4px;
 
-    @media screen and (min-width: 451px) {
+    @media screen and (min-width: 375px) {
       width: 50%;
     }
   }
-  
 }
     .feedback_logo img{
       display: inline-block;
@@ -810,10 +555,10 @@ left: 0;
  right: -15px;
  transform: rotate(-45deg);
  }
-  }
+}
 
-  .feedbackText {
-    // width: 108px;
+  .feedbackText { ///////////////////////////////////////
+    display:block;
     height: 23px; 
     font-weight: bold;
     font-style: normal;
@@ -823,7 +568,7 @@ left: 0;
     margin:0;
     color: #000000;
 
-    @media screen and (min-width: 451px) {
+    @media screen and (min-width: 375px) {
       font-size: 32px;
     }
   }
@@ -843,7 +588,7 @@ left: 0;
     text-decoration: none;
     margin-bottom: 35px;
     color: @maincolor;
-    @media screen and (min-width: 451px) {
+    @media screen and (min-width: 375px) {
       width: 405px;
       height: 60px; 
     }
@@ -862,22 +607,19 @@ left: 0;
     font-weight: bold;
     font-size: 16px;
     line-height: 19px;
-    @media screen and (min-width: 451px)  {
+    @media screen and (min-width: 375px)  {
       font-size: 22px;
     }
     }
   }
   .personal {
+    display: block;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-  // display: block;
-  // width: 320px;
-  // height: 568px;
-  // text-align: center;
-  -webkit-animation: welcomeAnimation 1s ease-in;
-          animation: welcomeAnimation 1s ease-in;
+    animation: welcomeAnimation 1s ease-in;
 
           &_top {
             flex: 1;
@@ -905,13 +647,13 @@ left: 0;
               text-decoration: none;
               color: black;
               font-weight: bold;
-              @media screen and (min-width: 451px)  {
+              @media screen and (min-width: 375px)  {
                 font-size: 32px;
               }
             }
 
             img {
-              @media screen and (min-width: 451px)  {
+              @media screen and (min-width: 375px)  {
                 width: 30px;
                 height: 30px;
               }
@@ -926,7 +668,7 @@ font-style: normal;
 font-weight: 500;
 font-size: 20px;
 line-height: 28px;
-@media screen and (min-width: 451px)  {
+@media screen and (min-width: 375px)  {
   font-size: 32px;
 }
 }
@@ -960,69 +702,13 @@ letter-spacing: 0.5px;
 color: #000000;
 opacity: 0.6;
 }
-
-
-
-
-@media screen and (min-width: 750px){
-body{
-  width: 750px;
-  height: 1334px;
-}
-#root{
-  width: 750px;
-.App{
-  width: 750px;
-}
-}
-  .map{
-    display: block;
-    width: 100%;
-    font-size: 30px;
-    text-align: center;
-    .mapFrame{
-  width: 750px;
-  height: 1152px;
-    }
-    .mapLoaderText{
-      position:absolute;
-      top:50%;
-      left:27%;
-      z-index:-1;
-      font-size: 50px; 
-    }
-  }
-
-  .aboutSlider{
-    width: 750px;
-    height:auto;
-    margin-bottom: 20px;
-    img{
-      width: 750px;
-      height: 750px;  
-    }
-    .loginLinksRow{
-      display: block;
-      text-align: center;
-      padding: 20px 0 0 0;
-    }
-  }
-}
-
-a:-webkit-any-link {
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.validationInputEmail{
+.map{
   display: block;
-  position: absolute;
-  top: 52px;
-  right: 15px;
-  width: 15px;
-  height: 12px;
+  width: 100vw;
+  height: 100vh;
 }
+
+
 #Stream{
   canvas{
     display:inline-block;

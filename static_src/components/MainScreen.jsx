@@ -7,11 +7,6 @@ import axios from "axios";
 
 export default class MainScreen extends React.Component{
 
-state={
-user:'User',
-loggedIn:'no',
-};
-
 
 loaddingRedirect = () => {
 setTimeout( ()=>{

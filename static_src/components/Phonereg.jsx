@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 import axios from 'axios';
+import Training from './Training';
 
 
 
@@ -94,12 +95,7 @@ validationButtonHandler = (e) => {
         this.setState({codeSended:true});
     
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
-     if(this.state.authorized === true){
-      window.location = "http:\//Map";
-        this.sendData();
-      }else{
-        this.sendData();
-     };
+      window.location = "/Training";
     }else if(validate === true && codeSended === true && generatedCode !== passwordInput){
       alert("Вы ввели некорректный код");
     }else if(validate !== true && codeSended === true || codeSended !== true   && input.length < 15) {
@@ -125,7 +121,7 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
 
 //----------------Отправка данных на сервер---------//
       
-
+/*
       sendData = () => {
         axios({
         method:'post',
@@ -140,7 +136,7 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
         });
     };
 
-
+*/
 
 
 
@@ -161,21 +157,29 @@ this.setState({passwordInput:Number(value) }); //Конвертируем стр
 render(){
 const {codeSended,generatedCode,passwordInput,input,validate} = this.state;  
   return (
-    <div className="loginScreen">
-            <div className="regwrapper">
+      <div className="loginScreen">
+
+      <div className="registration">
+      <h3>Регистрация</h3>
+      </div>
       
-            <h1 className="registration">Регистрация</h1>
+    <div className="regwrapper">
+
+    
       <div className="validationInputRow">
      
-        <p>Введите номер телефона</p>
+      <p>Номер телефона</p>
           <div className="inputRowComponent">
-
+          
             <input onChange={this.inputHandler} 
                    className="validationInputField"
                    placeholder="+7(___)___-__-__"
                    maxLength="16"
                    
             />
+
+<p className="validationErrorText" style={validate === false ? {display:'block'}:{display:'none'}
+                 }>Номер введён неправильно.<a href="/PhoneValidation">Попробуйте ещё раз</a></p>
              
               <img className="validationInputFieldIndication"src={validationSuccess}
                    style={validate === true ? {display:'block'}:{display:'none'} }
@@ -183,9 +187,8 @@ const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
               <img className="validationInputFieldIndication"src={validationFaild}
               style={input.length > 3 && validate !== true ? {display:'block'}:{display:'none'} }
                 />
-<p className="validationErrorText" style={validate === false ? {display:'block'}:{display:'none'}
-                 }>Номер введён неправильно.<a href="/Phonereg">Попробуйте ещё раз</a></p>
-  
+
+
           
         </div>
         
@@ -199,56 +202,29 @@ const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
               placeholder="• • • • •" 
               onChange={ ()=>{this.passwordHandler(event.target.value)}}
               maxLength="5"/>
+   <img className="validationInputFieldIndication"src={validationSuccess}
+                style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
+            />
      
-     <img className="validationInputFieldIndication"src={validationSuccess}
-        style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
-     />
-     
-     <img className="validationInputFieldIndication"src={validationFaild}
-        style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
-      />
-                <p className="validationErrorText" style={codeSended === true ? {display:'block'}:{display:'none'}
-                 }>Мне не пришёл код.<a href="#">Отправить повторно</a></p>
-        </div>
+          <img className="validationInputFieldIndication"src={validationFaild}
+            style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
+            />  
+            
+            <p className="validationErrorText" style={ codeSended === true && passwordInput !== generatedCode  ? {display:'block'} : {display:'none'} }>Мне не пришёл код.<a href="#">Отправить повторно</a></p>        
+    
+          </div>
       </div>
-  </div>
-        <button className="passwordSendButton" style={input.length > 15 || passwordInput.length > 4  ? { opacity:1} : {opacity:0.5}
+    </div>
+
+         <button className="passwordSendButton" style={validate === true || passwordInput === generatedCode  ? { opacity:1} : {opacity:0.5}
                                                            }
                 onClick={ ()=>{this.validationButtonHandler(event)}}
         > 
              <p style={codeSended == false ? {display:'block'} : {display:'none'}}>Получить код</p>
-             <p style={codeSended == true ? {display:'block'} : {display:'none'}}>Зарегистрироваться</p>
+             <p style={codeSended == true ? {display:'block'} : {display:'none'}}>Войти</p>
          </button>
          </div>
 </div>
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

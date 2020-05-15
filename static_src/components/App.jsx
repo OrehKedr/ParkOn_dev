@@ -4,7 +4,7 @@ import MainScreen from './MainScreen';
 import PropTypes from "prop-types";
 import style from "./styles/style.css";
 import { BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
-import Map from "./Map";
+import MapModule from "./MapModule";
 import Welcome from './Welcome';
 import PhoneValidation from './PhoneValidation';
 import EmailValidation from './EmailValidation';
@@ -17,7 +17,6 @@ import Changereg from "./Changereg";
 import Emailregistration from "./Emailregistration";
 import Changeauto from "./Changeauto";
 import Phonereg from "./Phonereg";
-import Emailauto from "./Emailauto";
 import Stream from "./Stream";
 
 
@@ -52,16 +51,12 @@ render(){
 						<Changeauto/>
 					</Route>
 
-					<Route path="/Emailauto">
-						<Emailauto/>
-					</Route>
-
 					<Route path="/Phonereg">
 						<Phonereg/>
 					</Route>
 					
-					<Route path="/Map">
-						<Map/>
+					<Route path="/MapModule">
+						<MapModule/>
 					</Route>
 
 					<Route path="/PhoneValidation">

@@ -12,16 +12,17 @@ state={
 
 render(){
 	return <div className="welcomeScreen">
-		<p className="choosereg">Выберите удобный 
-		<br/>
-		способ авторизации
+		<p className="choosereg">
+			Выберите удобный 
+				<br/>
+			способ авторизации
 		</p>
 			    <div className="loginLinksRow">
 				 	    <Link to="/PhoneValidation" className="loginLink" >
 				  			  Номер телефона
 				  		</Link>
 				
-						<Link to="/Emailauto" className="loginLink">
+						<Link to="/EmailValidation" className="loginLink">
 							  Электронная почта 
 						</Link>
 				</div>

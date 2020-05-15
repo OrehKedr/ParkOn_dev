@@ -13,80 +13,6 @@ body {
   width: 100%;
   height: 100%;
 }
-.aboutScreen {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.welcomeScreen {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-.choosereg {
-  display: inline-block;
-  width: 280px;
-  height: 105px;
-  text-align: center;
-  margin: 0;
-  font-size: 22px;
-}
-@media screen and (min-width: 451px) {
-  .choosereg {
-    font-size: 34px;
-    width: 80%;
-    line-height: 1.6;
-  }
-}
-.registration {
-  display: block;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  width: 90%;
-  height: 26px;
-  padding: 80px 5%;
-}
-@media screen and (min-width: 451px) {
-  .registration {
-    font-size: 44px;
-  }
-}
-@media screen and (min-width: 451px) {
-  .registration h1 {
-    font-size: 44px;
-  }
-}
-.regwrapper {
-  display: block;
-  width: 80%;
-  height: 100vh;
-  padding: 0 10%;
-  text-align: center;
-}
 .mainScreen {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -106,40 +32,10 @@ body {
   -webkit-animation: mainscreen 1s ease-in;
           animation: mainscreen 1s ease-in;
 }
-.mainScreen p {
-  position: relative;
-  z-index: 3;
-  float: right;
-}
-.mainScreen .aboutLink {
-  text-decoration: none;
-  position: relative;
-  top: 16px;
-  left: 20px;
-}
-@-webkit-keyframes mainscreen {
-  from {
-    -webkit-filter: brightness(0);
-            filter: brightness(0);
-  }
-  to {
-    -webkit-filter: brightness(1);
-            filter: brightness(1);
-  }
-}
-@keyframes mainscreen {
-  from {
-    -webkit-filter: brightness(0);
-            filter: brightness(0);
-  }
-  to {
-    -webkit-filter: brightness(1);
-            filter: brightness(1);
-  }
-}
 .mainScreen .logo {
   -webkit-animation-duration: 1.5s;
           animation-duration: 1.5s;
+  margin: auto auto;
   -webkit-animation-name: logo;
           animation-name: logo;
 }
@@ -165,136 +61,43 @@ body {
     opacity: 0;
   }
 }
-.searchButton {
-  display: inline-block;
-  position: absolute;
-  width: 110px;
-  line-height: 31px;
-  font-size: 15px;
-  text-align: center;
-  bottom: 30%;
-  left: 35%;
-  border: none;
-  border-radius: 10px;
-  height: 30px;
-  font-weight: bold;
-  background-color: #02DA35;
-  color: white;
-  text-decoration: none;
-  -webkit-transition: 1s;
-  transition: 1s;
-  -webkit-animation: searchButton 2s ease-in;
-          animation: searchButton 2s ease-in;
-}
-@media Tablet {
-  .searchButton {
-    font-size: 18px;
-  }
-}
-@-webkit-keyframes searchButton {
-  from {
-    opacity: 0;
-    margin-bottom: -400px;
-  }
-  to {
-    opacity: 1;
-    margin-bottom: 0px;
-  }
-  95% {
-    opacity: 0;
-  }
-}
-@keyframes searchButton {
-  from {
-    opacity: 0;
-    margin-bottom: -400px;
-  }
-  to {
-    opacity: 1;
-    margin-bottom: 0px;
-  }
-  95% {
-    opacity: 0;
-  }
-}
-.searchButton:hover {
-  -webkit-transition: 1s;
-  transition: 1s;
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
-}
-.map {
+.welcomeScreen {
   display: block;
   width: 100%;
-  height: 100%;
-  text-align: center;
-}
-.map .mapFrame {
-  width: 311px;
-  height: 471px;
-  border: 0;
-  border: none;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-}
-.map .mapLoaderText {
-  position: absolute;
-  width: auto;
-  top: 50%;
-  left: 30%;
-  z-index: -1;
-  font-size: 18px;
-}
-.linksList {
-  display: block;
-  width: 100%;
-  position: relative;
-  top: 0;
-  left: 0;
-}
-.linksList ul {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-orient: horizontal;
+  padding-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100%;
-  height: 15px;
-  position: relative;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  list-style: none;
-  padding: 10px 0;
-  margin: 0;
-  background-color: #02DA35;
 }
-.welcomeText {
+@media screen and (min-width: 375px) {
+  .welcomeScreen {
+    padding-top: 120px;
+  }
+}
+.welcomeScreen .welcomeText {
   display: block;
-  width: 237px;
-  font-family: Roboto, sans-serif;
+  width: 100vw;
   font-style: normal;
   font-weight: 900;
   font-size: 22px;
   line-height: 30px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   text-align: center;
-  margin: 0;
   -webkit-animation: "welcomeAnimation" 1s ease-in;
           animation: "welcomeAnimation" 1s ease-in;
 }
-@media screen and (min-width: 451px) {
-  .welcomeText {
-    font-size: 38px;
-    width: 405px;
-    line-height: 54px;
+@media screen and (min-width: 375px) {
+  .welcomeScreen .welcomeText {
+    font-size: 26px;
   }
 }
 @-webkit-keyframes welcomeAnimation {
@@ -313,12 +116,25 @@ body {
     opacity: 1;
   }
 }
+.welcomeScreen .choosereg {
+  display: inline-block;
+  width: 280px;
+  text-align: center;
+  font-size: 26px;
+}
+@media screen and (min-width: 375px) {
+  .welcomeScreen .choosereg {
+    font-size: 26px;
+    width: 80%;
+  }
+}
 .loginLinksRow {
   display: block;
+  width: 85%;
   text-align: center;
-  padding: 20px 0 0 0;
-  -webkit-animation: "linksRowAnimation" 1s ease-in;
-          animation: "linksRowAnimation" 1s ease-in;
+  padding: 50px 0 0 0;
+  -webkit-animation: linksRowAnimation 1s ease-in;
+          animation: linksRowAnimation 1s ease-in;
 }
 @-webkit-keyframes linksRowAnimation {
   from {
@@ -338,16 +154,22 @@ body {
 }
 .loginLinksRow .loginLink {
   display: block;
-  width: 266px;
+  width: 90%;
   height: 40px;
-  line-height: 42px;
-  margin: 10px 25px;
+  line-height: 40px;
+  margin: 40px auto;
   text-decoration: none;
   border: none;
   border-radius: 10px;
   background-color: #44f1a6;
   color: black;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 16px;
+}
+@media screen and (min-width: 375px) {
+  .loginLinksRow .loginLink {
+    font-size: 25px;
+  }
 }
 .loginLinksRow .loginLink:hover {
   background-color: transparent;
@@ -357,12 +179,8 @@ body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .loginLinksRow .loginLink {
-    width: 405px;
-    height: 60px;
-    line-height: 60px;
-    margin: 25px 25px;
     font-size: 20px;
   }
 }
@@ -390,11 +208,6 @@ body {
   -webkit-animation: "loginScreen" 0.5s ease-in;
           animation: "loginScreen" 0.5s ease-in;
 }
-.loginScreen.email {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
 @-webkit-keyframes loginScreen {
   from {
     opacity: 0;
@@ -411,31 +224,34 @@ body {
     opacity: 1;
   }
 }
-.loginScreen p {
-  font-family: Roboto, sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 16px;
-  text-align: left;
+.loginScreen .registration {
+  display: block;
+  text-align: center;
+  width: 90%;
+  padding: 50px 5%;
+  font-size: 22px;
 }
-@media screen and (min-width: 451px) {
-  .loginScreen p {
-    font-size: 24px;
+@media screen and (min-width: 375px) {
+  .loginScreen .registration {
+    padding: 80px auto 70px auto;
   }
 }
-.loginScreen .validationErrorText {
-  padding: 18px 0 18px 0;
-  margin: 0;
-  color: red;
-  font-size: 10px;
+.loginScreen .registration h3 {
+  font-weight: normal;
 }
-.loginScreen .validationInputRow {
+.loginScreen .regwrapper {
+  display: block;
+  width: 80%;
+  height: auto;
+  padding: 0 10%;
+  text-align: center;
+}
+.loginScreen .regwrapper .validationInputRow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
   text-align: left;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -445,45 +261,39 @@ body {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.loginScreen .validationInputRow .validationheader {
+.loginScreen .regwrapper .validationInputRow p {
   text-align: left;
 }
-@media screen and (min-width: 451px) {
-  .loginScreen .validationInputRow {
-    padding-bottom: 10px;
-  }
+.loginScreen .regwrapper .validationInputRow .inputRowComponent {
+  display: block;
+  position: relative;
 }
-@media screen and (min-width: 451px) {
-  .loginScreen .validationInputRow p {
-    font-size: 30px;
-  }
-}
-.loginScreen .validationInputRow .validationInputField {
+.loginScreen .regwrapper .validationInputRow .inputRowComponent .validationInputField {
   width: 100%;
   height: 25px;
   margin: 0px;
   border-radius: 5px;
   border: 1px solid black;
 }
-@media screen and (min-width: 451px) {
-  .loginScreen .validationInputRow .validationInputField {
-    width: 350px;
-    height: 40px;
+@media screen and (min-width: 375px) {
+  .loginScreen .regwrapper .validationInputRow .inputRowComponent .validationInputField {
+    height: 30px;
+    font-size: 16px;
   }
 }
-.loginScreen .validationInputRow .inputRowComponent {
-  display: block;
-  position: relative;
+.loginScreen .regwrapper .validationInputRow .inputRowComponent .validationErrorText {
+  width: 100%;
+  padding: 18px 0;
+  margin: 0;
+  color: red;
+  font-size: 10px;
 }
-.loginScreen .validationInputRow .inputRowComponent p {
-  text-align: left;
-}
-@media screen and (min-width: 451px) {
-  .loginScreen .validationInputRow .inputRowComponent {
-    padding-bottom: 25px;
+@media screen and (min-width: 375px) {
+  .loginScreen .regwrapper .validationInputRow .inputRowComponent .validationErrorText {
+    font-size: 12px;
   }
 }
-.loginScreen .validationInputRow .inputRowComponent .validationInputFieldIndication {
+.loginScreen .regwrapper .validationInputRow .inputRowComponent .validationInputFieldIndication {
   display: block;
   position: absolute;
   top: 9px;
@@ -491,7 +301,7 @@ body {
   width: 15px;
   height: 12px;
 }
-.passwordSendButton {
+.loginScreen .regwrapper .passwordSendButton {
   display: inline-block;
   width: 90%;
   height: 40px;
@@ -504,20 +314,17 @@ body {
   background-color: #44f1a6;
   opacity: 0.5;
 }
-.passwordSendButton:hover {
+.loginScreen .regwrapper .passwordSendButton:hover {
   color: #44f1a6;
   background-color: transparent;
   border: 2px solid #44f1a6;
 }
-@media screen and (min-width: 451px) {
-  .passwordSendButton {
-    width: 300px;
-    height: 50px;
+@media screen and (min-width: 375px) {
+  .loginScreen .regwrapper .passwordSendButton {
     font-size: 18px;
-    border-radius: 16px;
   }
 }
-.passwordSendButton p {
+.loginScreen .regwrapper .passwordSendButton p {
   display: block;
   width: 100%;
   margin: 0;
@@ -525,67 +332,10 @@ body {
   text-align: center;
   color: black;
 }
-.LetsTrainingLink {
-  display: block;
-  width: 266px;
-  height: 40px;
-  line-height: 42px;
-  margin: 10px 25px;
-  text-decoration: none;
-  border: none;
-  border-radius: 10px;
-  background-color: #44f1a6;
-  color: white;
-}
-@media screen and (min-width: 451px) {
-  .LetsTrainingLink {
-    width: 405px;
-    height: 60px;
-    line-height: 60px;
-    margin: 25px 25px;
-    font-size: 20px;
-  }
-}
-.letsBegin {
-  display: block;
-  width: 280px;
-  font-weight: normal;
-  font-size: 20px;
-  text-align: center;
-  font-weight: 100;
-}
-@media screen and (min-width: 451px) {
-  .letsBegin {
-    font-size: 32px;
-    width: 460px;
-    line-height: 54px;
-  }
-}
-.skip {
-  background-color: transparent;
-  color: black;
-  border: none;
-  margin-bottom: 272px;
-  display: block;
-  width: 266px;
-  height: 40px;
-  line-height: 42px;
-  margin: 10px 25px;
-  text-decoration: none;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-@media screen and (min-width: 451px) {
-  .skip {
-    width: 405px;
-    height: 60px;
-    line-height: 60px;
-    margin: 25px 25px;
-    font-size: 20px;
-  }
-}
 .training {
-  height: 100%;
+  display: block;
+  width: 100vw;
+  padding-top: 80px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -601,6 +351,7 @@ body {
           justify-content: center;
   -webkit-animation: "welcomeAnimation" 1s ease-in;
           animation: "welcomeAnimation" 1s ease-in;
+  font-size: 22px;
 }
 @keyframes welcomeAnimation {
   from {
@@ -610,6 +361,16 @@ body {
     opacity: 1;
   }
 }
+@media screen and (min-width: 375px) {
+  .training {
+    padding-top: 150px;
+  }
+}
+.training h3 {
+  text-align: center;
+  font-weight: bold;
+  margin: 0;
+}
 .trainingWelcome {
   display: block;
   width: 237px;
@@ -618,17 +379,14 @@ body {
   font-weight: 900;
   font-size: 22px;
   line-height: 30px;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
   text-align: center;
   padding: 58px 40px 72px 40px;
 }
 .mainadvise {
-  height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  height: 100%;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -664,10 +422,8 @@ body {
   border-radius: 10px;
   text-align: center;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .done {
-    width: 405px;
-    height: 60px;
     margin-top: 20px;
     font-size: 24px;
     display: -webkit-box;
@@ -697,20 +453,31 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: left;
-  padding: 10px 0;
+  padding: 20px 0;
   width: 100%;
+}
+@media screen and (min-width: 375px) {
+  .advice {
+    padding: 20px 0;
+  }
+}
+@media screen and (min-width: 393px) {
+  .advice {
+    padding: 10px 0;
+  }
 }
 .advice .adviceText {
   display: block;
-  width: 65%;
+  width: 75%;
+  padding: 0 5px;
   font-size: 14px;
   -webkit-animation: welcomeAnimation 4s ease-in-out;
           animation: welcomeAnimation 4s ease-in-out;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .advice .adviceText {
-    width: 70%;
-    font-size: 28px;
+    font-size: 18px;
+    padding: 0 10px;
   }
 }
 @keyframes welcomeAnimation {
@@ -721,9 +488,6 @@ body {
     opacity: 1;
   }
 }
-.advice__firstAdvise {
-  padding-top: 26px;
-}
 .greenicon {
   display: block;
   background: url(/static_src/components/img/markGreen.png) no-repeat;
@@ -731,13 +495,6 @@ body {
   height: 48px;
   text-align: center;
   margin: auto 10px;
-}
-@media screen and (min-width: 451px) {
-  .greenicon {
-    background: url(/static_src/components/img/markGreen.png) no-repeat center;
-    width: 95px;
-    height: 50px;
-  }
 }
 .ico {
   display: inline-block;
@@ -758,16 +515,6 @@ body {
   text-align: center;
   margin: auto 10px;
 }
-@media screen and (min-width: 451px) {
-  .redicon {
-    display: block;
-    background: url(/static_src/components/img/markRed.png) no-repeat center;
-    width: 95px;
-    height: 50px;
-    text-align: center;
-    margin: auto 10px;
-  }
-}
 .zoom {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -783,15 +530,6 @@ body {
   height: 96px;
   margin: auto 10px;
 }
-@media screen and (min-width: 451px) {
-  .zoom {
-    width: 95px;
-    height: 85px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-}
 .circle {
   display: block;
   position: relative;
@@ -799,7 +537,7 @@ body {
   height: 32px;
   border-radius: 50%;
   background-color: white;
-  margin-bottom: 10px;
+  margin: 0 auto 10px auto;
   -webkit-box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
           box-shadow: 0 0 9px rgba(0, 0, 0, 0.5);
 }
@@ -858,11 +596,6 @@ body {
   text-align: center;
   margin: auto 10px;
 }
-@media screen and (min-width: 451px) {
-  .find {
-    margin: auto 40px;
-  }
-}
 .find .findIcon {
   display: inline-block;
   width: 20px;
@@ -906,7 +639,7 @@ body {
   height: 50%;
   border-radius: 4px;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .feedback textarea {
     width: 50%;
   }
@@ -966,6 +699,7 @@ body {
           transform: rotate(-45deg);
 }
 .feedbackText {
+  display: block;
   height: 23px;
   font-weight: bold;
   font-style: normal;
@@ -975,7 +709,7 @@ body {
   margin: 0;
   color: #000000;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .feedbackText {
     font-size: 32px;
   }
@@ -998,7 +732,7 @@ body {
   margin-bottom: 35px;
   color: #44f1a6;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .send_it {
     width: 405px;
     height: 60px;
@@ -1022,12 +756,14 @@ body {
   font-size: 16px;
   line-height: 19px;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .send_it a {
     font-size: 22px;
   }
 }
 .personal {
+  display: block;
+  width: 100%;
   height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1040,7 +776,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   -webkit-animation: welcomeAnimation 1s ease-in;
-  animation: welcomeAnimation 1s ease-in;
+          animation: welcomeAnimation 1s ease-in;
 }
 .personal_top {
   -webkit-box-flex: 1;
@@ -1078,12 +814,12 @@ body {
   color: black;
   font-weight: bold;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .personal_link a {
     font-size: 32px;
   }
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .personal_link img {
     width: 30px;
     height: 30px;
@@ -1096,7 +832,7 @@ body {
   font-size: 20px;
   line-height: 28px;
 }
-@media screen and (min-width: 451px) {
+@media screen and (min-width: 375px) {
   .example {
     font-size: 32px;
   }
@@ -1147,61 +883,10 @@ body {
   color: #000000;
   opacity: 0.6;
 }
-@media screen and (min-width: 750px) {
-  body {
-    width: 750px;
-    height: 1334px;
-  }
-  #root {
-    width: 750px;
-  }
-  #root .App {
-    width: 750px;
-  }
-  .map {
-    display: block;
-    width: 100%;
-    font-size: 30px;
-    text-align: center;
-  }
-  .map .mapFrame {
-    width: 750px;
-    height: 1152px;
-  }
-  .map .mapLoaderText {
-    position: absolute;
-    top: 50%;
-    left: 27%;
-    z-index: -1;
-    font-size: 50px;
-  }
-  .aboutSlider {
-    width: 750px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  .aboutSlider img {
-    width: 750px;
-    height: 750px;
-  }
-  .aboutSlider .loginLinksRow {
-    display: block;
-    text-align: center;
-    padding: 20px 0 0 0;
-  }
-}
-a:-webkit-any-link {
-  color: black;
-  cursor: pointer;
-  text-decoration: none;
-}
-.validationInputEmail {
+.map {
   display: block;
-  position: absolute;
-  top: 52px;
-  right: 15px;
-  width: 15px;
-  height: 12px;
+  width: 100vw;
+  height: 100vh;
 }
 #Stream canvas {
   display: inline-block;

@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {Link} from 'react-router-dom';
-import Map from './Map';
+import MapModule from './MapModule';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 
@@ -56,7 +56,7 @@ validateFunction=()=>{
   		this.setState({codeSended:true});
   		this.generateCommonCode();
   	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){
-      window.location = "/Map";
+      window.location = "/Training";
   	}else {
   		alert("something went wrong");	
   	}
@@ -81,12 +81,12 @@ render(){
 	return (
 
 	<div className="loginScreen">
-<div className="regwrapper">
 
 		<div className="registration">
-			<h1>Регистрация</h1>
+			<h3>Регистрация</h3>
 		</div>
 	
+	<div className="regwrapper">
 		<div className="validationInputRow">
 			
 			<p>Электронная почта</p>

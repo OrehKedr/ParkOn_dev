@@ -6,19 +6,16 @@ import markRed from "./img/markRed.png";
 import camera from "./img/photo.png";
 import findme from "./img/someicon.png";
 import plus from "./img/plus.png";
+import MapModule from './MapModule';
 
 export default class Letstraining extends React.Component {
-
-    state={
-        
-    };
 
 
 
     render(){
         return(
        <div className="mainadvise">
-            <div className="advice advice__firstAdvise">
+            <div className="advice ">
               
               <div className="greenicon">
                 <img className="ico" src={camera}/>
@@ -80,7 +77,7 @@ export default class Letstraining extends React.Component {
  
               </div>
  
-              <Link to="/Map" className="done">
+              <Link to="/MapModule" className="done">
                  Завершить
               </Link>
       </div>
