@@ -2,27 +2,27 @@ import React, {Component} from 'react'
 import { YMaps, Map, Placemark, ZoomControl, GeolocationControl, Button} from "react-yandex-maps";
 
 
-export default class MapModule extends React.Component{
+export default class MapModule extends Component{
+
     static defaultProps = {
+        homeAddress: "Москва, ул. Барышиха, 51",
         //координаты маркеров (камер)
         coordinates:  [
-            [55.86, 37.64],
-            [55.734876, 37.59308]
+           // [55.86, 37.64],
+            [55.853411, 37.351747]
         ]
     };
+
     state = {
-        map: null,
-        ymaps: {},
         homeRoute: {},
         geolocation: null,
         showRoute: false,
         //координаты местоположения
         mapData: {
-            center: [55.76, 37.64],
-            zoom: 9
+            center: [55.853411, 37.351747],
+            zoom: 9,
         }
     };
-
 
     handleApiAvaliable = ymaps => {
         this.ymaps = ymaps;
@@ -30,10 +30,11 @@ export default class MapModule extends React.Component{
 
     addRoute = () => {
         if (this.ymaps && this.map) {
+            const { homeAddress } = this.props;
             const multiRoute = new ymaps.multiRouter.MultiRoute(
                 {
                     // Описание опорных точек мультимаршрута (должно быть местоположение и дом)
-                    referencePoints: [[55.734876, 37.59308], "Москва, ул. Мясницкая"],
+                    referencePoints: [[55.853411, 37.351747], homeAddress],
                     // Параметры маршрутизации.
                     params: {
                         // Ограничение на максимальное количество маршрутов, возвращаемое маршрутизатором.
@@ -101,7 +102,7 @@ export default class MapModule extends React.Component{
                             );
                         })}
                         <ZoomControl options={{float: 'right', size: "small", position: {right: 12, bottom: 250}}}/>
-                        <GeolocationControl options={{float: 'left', position: {right: 12, bottom: 196}}}/>
+                        <GeolocationControl options={{float: 'left', position: {right: 12, bottom: 196}}} />
                         { contentButton }
                     </Map>
                 </YMaps>
