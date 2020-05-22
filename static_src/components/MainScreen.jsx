@@ -4,31 +4,27 @@ import PropTypes from "prop-types";
 import logo from "./img/logo.png";
 import {Link} from "react-router-dom"
 import axios from "axios";
+import AuthService from "../Services/AuthService";
 
 export default class MainScreen extends React.Component{
 
+	loaddingRedirect = (path) => {
+		setTimeout( () => {
+			window.location = path;
+		}, 3000) 
+	};
 
-loaddingRedirect = () => {
-setTimeout( ()=>{
-window.location="/Welcome";
-},3000) 
-};
+	render() {
+		let path = '/Welcome';
+		if (!AuthService.isAccesTokenExpired()) {
+			path ='/MapModule';
+		}
+		this.loaddingRedirect(path);
 
-dataFetch = () => {
-/*
-//здесь будет выполняться проверка авторизации 
-//пользователя(server/cookies на наше усмотрение)
-*/	
-}
-
-
-
-render(){
-	this.loaddingRedirect();
-	return (
-	<div className='mainScreen' >
-		<img src={logo} className="logo"/>
-		</div>
-	);
-  }
+		return (
+			<div className='mainScreen' >
+				<img src={logo} className="logo"/>
+			</div>
+		);
+	}
 }

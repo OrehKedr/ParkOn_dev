@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.19.2",
+    "core-js": "^3.6.5",
     "jsmpeg-player": "^3.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-export-default-from": "^7.8.3",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "babel": "^6.23.0",

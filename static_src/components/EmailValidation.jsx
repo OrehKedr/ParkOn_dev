@@ -5,7 +5,6 @@ import MapModule from './MapModule';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 
-
 export default class LoginEmail extends React.Component {
 
 	state={
@@ -54,8 +53,8 @@ validateFunction=()=>{
   	const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
   	if(codeSended != true && input.length > 5){
   		this.setState({codeSended:true});
-  		this.generateCommonCode();
-  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){
+			this.generateCommonCode();
+  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){	
       window.location = "/MapModule";
   	}else {
   		alert("something went wrong");	

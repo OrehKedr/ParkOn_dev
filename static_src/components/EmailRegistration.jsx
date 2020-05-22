@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import MapModule from './MapModule';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
-
+import AuthService from '../Services/AuthService';
 
 export default class Emailregistration extends React.Component {
 
@@ -56,7 +56,13 @@ validateFunction=()=>{
   		this.setState({codeSended:true});
   		this.generateCommonCode();
   	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){
-      window.location = "/Training";
+			new Promise( (resolve) => {
+				resolve( AuthService.makeRegister({ email: input, password: passwordInput.toString() }) )
+			}).then( () => {
+				AuthService.makeLogin({ email: input, password: passwordInput.toString() });
+			}).then( () => { 
+				window.location = "/Training" 
+			}).catch( err => console.error(err) );
   	}else {
   		alert("something went wrong");	
   	}

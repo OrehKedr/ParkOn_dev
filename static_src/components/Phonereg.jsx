@@ -5,7 +5,7 @@ import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 import axios from 'axios';
 import Training from './Training';
-
+import AuthService from '../Services/AuthService';
 
 
 export default class Phonereg extends React.Component {
@@ -95,7 +95,15 @@ validationButtonHandler = (e) => {
         this.setState({codeSended:true});
     
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
-      window.location = "/Training";
+      // Если пользователь выбрал способ авторизации по телефону,
+      // тогда что указывать в поле email тела запроса по адресу: /api/auth/login ?
+      new Promise( (resolve) => {
+				resolve( AuthService.makeRegister({ email: input, password: passwordInput.toString() }) )
+			}).then( () => {
+				AuthService.makeLogin({ email: input, password: passwordInput.toString() });
+			}).then( () => { 
+				window.location = "/Training" 
+			}).catch( err => console.error(err) );
     }else if(validate === true && codeSended === true && generatedCode !== passwordInput){
       alert("Вы ввели некорректный код");
     }else if(validate !== true && codeSended === true || codeSended !== true   && input.length < 15) {

@@ -29,6 +29,12 @@ export default class App extends React.Component {
 		loggedIn:'no',
 	}
 
+	isAuth = (value) => {
+		this.setState({
+			loggedIn: value
+		});
+	}
+
 render(){
 	return( 
 		<Router>

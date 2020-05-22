@@ -5,7 +5,6 @@ import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 import MapModule from './MapModule';
 
-
 export default class LoginPhone extends React.Component {
 
 	state={
@@ -90,7 +89,6 @@ validationButtonHandler = (e) => {
     if(codeSended != true && input.length > 15 && validate === true){
       const generated = this.generateCommonCode();
         this.setState({codeSended:true});
-    
     }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
       window.location ="/MapModule";
     }else if(validate === true && codeSended === true && generatedCode !== passwordInput){
