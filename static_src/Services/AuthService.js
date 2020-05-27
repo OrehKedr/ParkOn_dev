@@ -42,7 +42,7 @@ export default class AuthService {
     }
 
     if (exp - reserve <= nowTime) {
-      AuthService.clearAuthData();
+      service.clearAuthData();
     }
 
     return exp - reserve <= nowTime;

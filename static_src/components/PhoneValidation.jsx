@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
 import MapModule from './MapModule';
+import AuthService from '../Services/AuthService';
 
 export default class LoginPhone extends React.Component {
 
@@ -11,10 +12,7 @@ export default class LoginPhone extends React.Component {
     input:' ',
     validate:' ',
     passwordInput:' ',
-    generatedCode:null,
-    codeSended:false,
-    apiUrl:'`https:\//sms.ru/sms/send?api_id=EDC6C1CA-CEE9-8205-1640-134DAFB6127E&to=79998458541,74993221627&msg=${this.state.generatedCode}&json=1`',
-    authorised:" ",
+    isPassOk: false
   };
 
  
@@ -71,6 +69,16 @@ validateFunction=()=>{   //Функция валидации
   }
 };
 
+validatePassword = (value) => {
+  let isPassOk = false;
+
+  if (value) {
+    isPassOk = value.toString().trim().length > 3 ? true : false;
+  }
+
+  this.setState({isPassOk})
+}
+
 
 //----------Фенкция генерации одноразового кода------------------//
 
@@ -84,33 +92,15 @@ generateCommonCode=()=>{
 //------------------------Функция кнопки------------------------//
 
 validationButtonHandler = (e) => { 
-  const {codeSended,input,generatedCode,passwordInput,validate} = this.state;//Объявляем значения из state
+  const {input,passwordInput,validate,isPassOk} = this.state;//Объявляем значения из state
     
-    if(codeSended != true && input.length > 15 && validate === true){
-      const generated = this.generateCommonCode();
-        this.setState({codeSended:true});
-    }else if(codeSended === true && generatedCode != ' ' && passwordInput === generatedCode && validate === true) {
-      window.location ="/MapModule";
-    }else if(validate === true && codeSended === true && generatedCode !== passwordInput){
-      alert("Вы ввели некорректный код");
-    }else if(validate !== true && codeSended === true || codeSended !== true   && input.length < 15) {
-      alert('Вы ввели неверный номер телефона');
-     
-
-    //----------SMS API---------------//
-
-
-   /*if (input.length === 16) {
-fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'no-cors'})
-  .then(response => { 
-    console.log(response);
-    return response.text();
-  })
-  .then((result) => {
-    console.log(result)
-  })
-}*/ 
-
+  if (input.length > 15 && validate === true && isPassOk) {
+    Promise.resolve( AuthService.makeLogin({ email: input, password: passwordInput.toString() }))
+    .then(() => window.location ="/MapModule");  
+  } else if (!isPassOk) {
+    alert("Вы ввели некорректный код");
+  } else if (validate !== true || input.length < 15) {
+    alert('Вы ввели неверный номер телефона');
   };
 };
 
@@ -119,13 +109,15 @@ fetch(`http:\//localhost:3000/?phone=${input}&password=${passwordInput}`,{mode:'
 passwordHandler = (value) => {
 setTimeout(()=>{
 this.setState({passwordInput:Number(value) }); //Конвертируем строку ввода пароля в номер для сравнения с генерируемым кодом 
+this.validatePassword(value);
 },50);
 }
 
 
 
 render(){
-const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
+const {input,validate, isPassOk} = this.state;
+
 	return (
 		<div className="loginScreen">
 
@@ -163,37 +155,37 @@ const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
         </div>
         
         <div className="codeField" 
-             style={this.state.codeSended === true ? {display:'block'}:{display:'none'}}>
+             style={{display:'block'}}>
          
           <p>Введите код</p> 
             <div className="inputRowComponent"> 
           <input 
-              className="validationInputField" 
-              placeholder="• • • • •" 
-              onChange={ ()=>{this.passwordHandler(event.target.value)}}
-              maxLength="5"/>
-   <img className="validationInputFieldIndication"src={validationSuccess}
-                style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
-            />
+            className="validationInputField" 
+            placeholder="• • • • •" 
+            onChange={ ()=>{this.passwordHandler(event.target.value)}}
+            maxLength="5"/>
+
+          <img className="validationInputFieldIndication" src={validationSuccess}
+            style={isPassOk ? {display:'block'}:{display:'none'} }
+          />
      
-          <img className="validationInputFieldIndication"src={validationFaild}
-            style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
-            />  
-            
-            <p className="validationErrorText" style={ codeSended === true && passwordInput !== generatedCode  ? {display:'block'} : {display:'none'} }>Мне не пришёл код.<a href="#">Отправить повторно</a></p>        
+          <img className="validationInputFieldIndication" src={validationFaild}
+            style={!isPassOk ? {display:'block'}:{display:'none'} }
+          />
     
-          </div>
+        </div>
       </div>
     </div>
 
-         <button className="passwordSendButton" style={validate === true || passwordInput === generatedCode  ? { opacity:1} : {opacity:0.5}
-                                                           }
-                onClick={ ()=>{this.validationButtonHandler(event)}}
-        > 
-             <p style={codeSended == false ? {display:'block'} : {display:'none'}}>Получить код</p>
-             <p style={codeSended == true ? {display:'block'} : {display:'none'}}>Войти</p>
-         </button>
-         </div>
+    <button 
+      className="passwordSendButton" 
+      style={(validate === true && isPassOk)? { opacity:1} : {opacity:0.5}}
+      onClick={ ()=>{this.validationButtonHandler(event)}}
+    > 
+      <p>Войти</p>
+
+    </button>
+  </div>
 </div>
 		);
   }
