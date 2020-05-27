@@ -4,18 +4,20 @@ import {Link} from 'react-router-dom';
 import MapModule from './MapModule';
 import validationFaild from "./img/validationFaild.png";
 import validationSuccess from "./img/validationSuccess.png";
+import AuthService from '../Services/AuthService';
 
 export default class LoginEmail extends React.Component {
 
 	state={
 		input:' ',
-		validate:' ',
+		validate: false,
 		mailNotExist:' ',
 		mailUsed:' ',
 		generatedCode:' ',
 		codeSended:' ',
 		apiUrl:' ',
 		passwordInput:' ',
+		isPassOk: false
 	};
 
 inputHandler = (event) =>{
@@ -49,15 +51,26 @@ validateFunction=()=>{
   }
 };
 
+validatePassword = (value) => {
+  let isPassOk = false;
+
+  if (value) {
+    isPassOk = value.toString().trim().length > 3 ? true : false;
+  }
+
+  this.setState({isPassOk})
+}
+
   validationButtonHandler = () => {
-  	const {codeSended,generatedCode,passwordInput,input,validate} = this.state;
-  	if(codeSended != true && input.length > 5){
-  		this.setState({codeSended:true});
-			this.generateCommonCode();
-  	 }else if(this.state.codeSended === true && this.state.generatedCode != ' ' && passwordInput === generatedCode  && validate === true){	
-      window.location = "/MapModule";
-  	}else {
-  		alert("something went wrong");	
+		const {input, passwordInput, validate, isPassOk} = this.state;
+		
+  	if (input.length > 5 && validate && isPassOk) {
+			Promise.resolve( AuthService.makeLogin({ email: input, password: passwordInput.toString() }))
+			.then(() => window.location ="/MapModule"); 
+		} else if (!isPassOk) {
+			alert("Вы ввели некорректный код");
+		}	else {
+  		alert("Проверьте поля ввода и повторите попытку.");
   	}
   };
 
@@ -68,15 +81,16 @@ validateFunction=()=>{
 };
 
 
-  passwordHandler = (value) => {
+passwordHandler = (value) => {
 setTimeout(()=>{
 this.setState({passwordInput:Number(value) });
+this.validatePassword(value);
 },200);
 };
 
 
 render(){
-	const {mailUsed,mailNotExist,codeSended,passwordInput,generatedCode,input,validate} = this.state;
+	const {mailUsed, mailNotExist, codeSended, input, validate, isPassOk} = this.state;
 	return (
 
 
@@ -114,7 +128,7 @@ render(){
 			</div>
 			
 			<div className="codeField" 
-				 style={codeSended === true ? {display:'block'}:{display:'none'}}>
+				 style={{display:'block'}}>
 				
 				<p>Введите код</p>	
 				
@@ -124,13 +138,13 @@ render(){
 						maxLength="5"
 						onChange={ ()=>{this.passwordHandler(event.target.value)}}
 					/>
-				 <img className="validationInputFieldIndication"src={validationSuccess}
-        			  style={generatedCode === passwordInput ? {display:'block'}:{display:'none'} }
-     			  />
+				  <img className="validationInputFieldIndication"src={validationSuccess}
+        		style={ isPassOk ? {display:'block'}:{display:'none'} }
+     			/>
      
      			<img className="validationInputFieldIndication"src={validationFaild}
-        		style={generatedCode !== passwordInput ? {display:'block'}:{display:'none'} }
-      			/>	
+        		style={ !isPassOk ? {display:'block'}:{display:'none'} }
+      		/>	
 						
 							
 		
@@ -139,13 +153,11 @@ render(){
 		</div>
 
 				<button className="passwordSendButton" 
-						style={validate !== true || mailUsed === true || mailNotExist === true ? {opacity:0.5} : { opacity:1}}		
-						onClick={ ()=>{this.validationButtonHandler(event)}}> 
-
-					<p style={codeSended == false ? {display:'block'} : {display:'none'}}>Выслать код</p>
-					<p style={codeSended == true ? {display:'block'} : {display:'none'}}>Войти</p>
-				 
-				 </button>
+						style={(validate && isPassOk)? { opacity:1} : {opacity:0.5}}
+						onClick={ ()=>{this.validationButtonHandler(event)} }
+				>
+					<p>Войти</p>
+				</button>
 		 </div>
 	</div>
 

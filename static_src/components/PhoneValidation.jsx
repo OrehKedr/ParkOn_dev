@@ -10,7 +10,7 @@ export default class LoginPhone extends React.Component {
 
 	state={
     input:' ',
-    validate:' ',
+    validate: false,
     passwordInput:' ',
     isPassOk: false
   };
@@ -92,9 +92,9 @@ generateCommonCode=()=>{
 //------------------------Функция кнопки------------------------//
 
 validationButtonHandler = (e) => { 
-  const {input,passwordInput,validate,isPassOk} = this.state;//Объявляем значения из state
+  const {input, passwordInput, validate, isPassOk} = this.state;//Объявляем значения из state
     
-  if (input.length > 15 && validate === true && isPassOk) {
+  if (input.length > 15 && validate && isPassOk) {
     Promise.resolve( AuthService.makeLogin({ email: input, password: passwordInput.toString() }))
     .then(() => window.location ="/MapModule");  
   } else if (!isPassOk) {
@@ -116,7 +116,7 @@ this.validatePassword(value);
 
 
 render(){
-const {input,validate, isPassOk} = this.state;
+const {input, validate, isPassOk} = this.state;
 
 	return (
 		<div className="loginScreen">
@@ -166,11 +166,11 @@ const {input,validate, isPassOk} = this.state;
             maxLength="5"/>
 
           <img className="validationInputFieldIndication" src={validationSuccess}
-            style={isPassOk ? {display:'block'}:{display:'none'} }
+            style={ isPassOk ? {display:'block'}:{display:'none'} }
           />
      
           <img className="validationInputFieldIndication" src={validationFaild}
-            style={!isPassOk ? {display:'block'}:{display:'none'} }
+            style={ !isPassOk ? {display:'block'}:{display:'none'} }
           />
     
         </div>
@@ -179,11 +179,10 @@ const {input,validate, isPassOk} = this.state;
 
     <button 
       className="passwordSendButton" 
-      style={(validate === true && isPassOk)? { opacity:1} : {opacity:0.5}}
-      onClick={ ()=>{this.validationButtonHandler(event)}}
-    > 
+      style={(validate && isPassOk)? { opacity:1} : {opacity:0.5}}
+      onClick={ ()=>{this.validationButtonHandler(event)} }
+    >
       <p>Войти</p>
-
     </button>
   </div>
 </div>
